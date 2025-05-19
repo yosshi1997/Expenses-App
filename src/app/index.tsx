@@ -24,35 +24,36 @@ const Index = (): JSX.Element => {
                 {/* User List */}
                 <View>
                     {/* User List Item */}
-                    <View>
-                        <View>
-                            <Text>Yoshimasa</Text>
-                            <Text>2025.04.30 13:14 更新</Text>
+                    <View style={styles.userListItem}>
+                        <View style={styles.userNameAndTime}>
+                            <Text style={styles.userName}>Yoshimasa</Text>
+                            <Text style={styles.updateTime}>2025.04.30 13:14 更新</Text>
                         </View>
-                        <View>
-                            <Text>Edit</Text>
-                        </View>
-                    </View>
-
-                    <View>
-                        <View>
-                            <Text>Yoshimasa</Text>
-                            <Text>2025.04.30 13:14 更新</Text>
-                        </View>
-                        <View>
-                            <Text>Edit</Text>
+                        <View style={styles.userListItemButton}>
+                            <Text style={styles.userEditButton}>Edit</Text>
                         </View>
                     </View>
 
-                    <View>
-                        <View>
-                            <Text>Yoshimasa</Text>
-                            <Text>2025.04.30 13:14 更新</Text>
+                    <View style={styles.userListItem}>
+                        <View style={styles.userNameAndTime}>
+                            <Text style={styles.userName}>Aya</Text>
+                            <Text style={styles.updateTime}>2025.04.30 13:14 更新</Text>
                         </View>
-                        <View>
-                            <Text>Edit</Text>
+                        <View style={styles.userListItemButton}>
+                            <Text style={styles.userEditButton}>Edit</Text>
                         </View>
                     </View>
+
+                    <View style={styles.userListItem}>
+                        <View style={styles.userNameAndTime}>
+                            <Text style={styles.userName}>Family</Text>
+                            <Text style={styles.updateTime}>2025.04.30 13:14 更新</Text>
+                        </View>
+                        <View style={styles.userListItemButton}>
+                            <Text style={styles.userEditButton}>Edit</Text>
+                        </View>
+                    </View>
+
                 </View>
             </View>
 
@@ -114,7 +115,57 @@ const styles = StyleSheet.create({
         left: 20,
         bottom: 16,
         color: "rgba(255, 255, 255,0.7)"
-    }
+    },
+    userListItem: {
+        backgroundColor: "rgb(138, 138, 138)",
+        flexDirection: "row",
+        height: 112,
+        width: "90 %",
+        marginTop: 16,
+        marginLeft: "5%",
+        marginRight: "5%",
+        borderRadius: 20,
+        borderWidth: 3,
+        borderColor: 'rgb(0, 0, 0)',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
+        elevation: 4, // Android用
+        justifyContent: "center"
+    },
+    userNameAndTime: {
+        backgroundColor: "transparent",
+        height: 64,
+        width: "100 %",
+        flexDirection: "colmn",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: 24
+    },
+    userName: {
+        backgroundColor: "transparent",
+        fontSize: 24,
+        lineHeight: 32,
+        color: "rgb(0, 0, 0)"
+    },
+    updateTime: {
+        backgroundColor: "transparent",
+        fontSize: 10,
+        lineHeight: 24,
+        color: "rgba(0, 0, 0,0.7)"
+    },
+    userListItemButton: {
+        backgroundColor: "transparent",
+        position: "absolute",
+        right: 16,
+        top: 8
+    },
+    userEditButton: {
+        backgroundColor: "transparent",
+        borderColor: 'transpatrent'
+    },
+
 })
 
 export default Index
