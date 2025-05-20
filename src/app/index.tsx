@@ -58,16 +58,16 @@ const Index = (): JSX.Element => {
             </View>
 
             {/* Add Button add-button-resetクラスの追加・消去で回転 */}
-            <View>
-                <Text>＋</Text>
-            </View>
+            <View style={[styles.addButton, styles.addButtonReset]}>
+                <Text style={styles.addButtonText}>＋</Text>
+            </View >
             {/* New User Button new-user-button-noneクラスの追加・消去で表示・非表示 */}
-            <View>
-                <Text>New User</Text>
+            <View style={[styles.newUserButton, styles.newUserButtonNone]}>
+                <Text style={styles.newUserButtonText}>New User</Text>
             </View>
             {/* Trend Check Button */}
-            <View>
-                <Text>Trend Check</Text>
+            <View style={styles.footerButton}>
+                <Text style={styles.footerButtonText}>Trend Check</Text>
             </View>
         </View>
     )
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         backgroundColor: "rgb(255, 255, 255)"
     },
     header: {
-        backgroundColor: "rgb(50, 50, 50)",
+        backgroundColor: "rgb(25, 25, 25)",
         height: 120,
         justifyContent: "flex-end"
     },
@@ -163,12 +163,86 @@ const styles = StyleSheet.create({
     },
     userEditButton: {
         backgroundColor: "transparent",
-        borderColor: 'transpatrent'
+        borderColor: 'transparent'
     },
+    addButton: {
+        backgroundColor: "rgb(25, 25, 25)",
+        borderColor: 'transparent',
+        height: 56,
+        width: 56,
+        borderRadius: 28,
+        position: "absolute",
+        right: 16,
+        bottom: 112,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
+        elevation: 4, // Android用
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    addButtonReset: {
+        transform: [{ rotate: '45deg' }]
+    },
+    addButtonText: {
+        color: "rgb(255, 255, 255)",
+        fontSize: 40,
+        fontWeight: 'bold',
+    },
+    newUserButton: {
+        backgroundColor: "rgb(25, 25, 25)",
+        borderColor: 'transparent',
+        height: 32,
+        width: 203,
+        borderRadius: 5,
+        position: "absolute",
+        right: 16,
+        bottom: 176,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
+        elevation: 4, // Android用
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    newUserButtonNone: {
+        display: 'none'
+    },
+    newUserButtonText: {
+        color: "rgb(255, 255, 255)",
+        fontSize: 16
+    },
+    footerButton: {
+        backgroundColor: "rgb(25, 25, 25)",
+        borderColor: 'transparent',
+        height: 96,
+        width: "90%",
+        borderRadius: 48,
+        position: "absolute",
+        right: "5%",
+        bottom: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
+        elevation: 4, // Android用
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    footerButtonText: {
+        color: "rgb(255, 255, 255)",
+        fontSize: 32
+    }
 
 })
 
 export default Index
 
 
-{/* ヘッダータイトルのフォント */ }
+{/* フォント編集
+    headerTitle
+    userName
+    newUserButtonText
+    footerButtonText */ }
