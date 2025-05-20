@@ -1,8 +1,11 @@
 import { View, Text, StyleSheet } from "react-native"
+interface Props {
+    visible?: boolean
+}
+const NewUserButton = ({ visible = false }: Props): JSX.Element => {
 
-const NewUserButton = (): JSX.Element => {
     return (
-        <View style={[styles.newUserButton, styles.newUserButtonNone]}>
+        <View style={[styles.newUserButton, visible && styles.newUserButtonVisible]}>
             <Text style={styles.newUserButtonText}>New User</Text>
         </View>
     )
@@ -24,10 +27,11 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 4, // Android用
         justifyContent: "center",
-        alignItems: "center"
-    },
-    newUserButtonNone: {
+        alignItems: "center",
         display: 'none'
+    },
+    newUserButtonVisible: {
+        display: 'flex'
     },
     newUserButtonText: {
         color: "rgb(255, 255, 255)",

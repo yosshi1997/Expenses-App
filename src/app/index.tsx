@@ -20,8 +20,9 @@ const Index = (): JSX.Element => {
                 <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
             </View>
 
-            <AddButton />
-            <NewUserButton />
+            {/* rotate={true}なら45度回転 */}
+            <AddButton rotate={true} />
+            <NewUserButton visible={true} />
             <FooterButton />
 
         </View>
