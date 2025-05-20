@@ -1,13 +1,19 @@
 import { View, Text, StyleSheet } from "react-native"
 
-const UserListItem = (): JSX.Element => {
+interface Props {
+    children: string;
+    updateTime: string;
+}
+
+const UserListItem = (props: Props): JSX.Element => {
+    const { children, updateTime } = props
     return (
         < View >
             {/* User List Item */}
             < View style={styles.userListItem} >
                 <View style={styles.userNameAndTime}>
-                    <Text style={styles.userName}>Yoshimasa</Text>
-                    <Text style={styles.updateTime}>2025.04.30 13:14 更新</Text>
+                    <Text style={styles.userName}>{children}</Text>
+                    <Text style={styles.updateTime}>{updateTime}</Text>
                 </View>
                 <View style={styles.userListItemButton}>
                     <Text style={styles.userEditButton}>Edit</Text>
