@@ -11,7 +11,7 @@ const UserList = (): JSX.Element => {
     return (
         <View style={styles.container}>
             {/* header */}
-            <Header />
+            <Header signUpVisible={false} logoutVisible={true} backVisible={false} editVisible={true}>Main Menu</Header>
 
             {/* User List Scroll */}
             <View>
@@ -24,9 +24,9 @@ const UserList = (): JSX.Element => {
             <AddButton rotate={true} />
             {/* visible={true}なら表示 */}
             <NewUserButton visible={true} />
-            <FooterButton />
+            <FooterButton>Trend Check</FooterButton>
 
-        </View>
+        </View >
     )
 }
 

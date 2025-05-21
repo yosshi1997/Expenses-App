@@ -1,9 +1,13 @@
 import { View, Text, StyleSheet } from "react-native"
+interface Props {
+    children: string;
+}
 
-const FooterButton = (): JSX.Element => {
+const FooterButton = (props: Props): JSX.Element => {
+    const { children } = props
     return (
         <View style={styles.footerButton}>
-            <Text style={styles.footerButtonText}>Trend Check</Text>
+            <Text style={styles.footerButtonText}>{children}</Text>
         </View>
     )
 }
