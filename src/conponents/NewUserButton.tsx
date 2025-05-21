@@ -1,12 +1,13 @@
 import { View, Text, StyleSheet } from "react-native"
 interface Props {
-    visible?: boolean
+    children: string;
+    visible?: boolean;
 }
-const NewUserButton = ({ visible = false }: Props): JSX.Element => {
+const NewUserButton = ({ children, visible = false }: Props): JSX.Element => {
 
     return (
         <View style={[styles.newUserButton, visible && styles.newUserButtonVisible]}>
-            <Text style={styles.newUserButtonText}>New User</Text>
+            <Text style={styles.newUserButtonText}>{children}</Text>
         </View>
     )
 }

@@ -23,7 +23,7 @@ const UserList = (): JSX.Element => {
             {/* rotate={true}なら45度回転 */}
             <AddButton rotate={true} />
             {/* visible={true}なら表示 */}
-            <NewUserButton visible={true} />
+            <NewUserButton visible={true}>New User</NewUserButton>
             <FooterButton>Trend Check</FooterButton>
 
         </View >
