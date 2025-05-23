@@ -6,3 +6,15 @@ const index = (): JSX.Element => {
 }
 
 export default index
+
+
+{/* フォント編集
+    [UserList]
+    headerTitle
+    userName
+    newUserButtonText
+    footerButtonText
+
+    [UserDetail]
+    dataText
+*/ }

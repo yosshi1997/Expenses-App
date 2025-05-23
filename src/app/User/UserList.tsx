@@ -40,8 +40,4 @@ const styles = StyleSheet.create({
 export default UserList
 
 
-{/* フォント編集
-    headerTitle
-    userName
-    newUserButtonText
-    footerButtonText */ }
+
