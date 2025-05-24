@@ -87,6 +87,9 @@ const styles = StyleSheet.create({
     scrollMargin: {
         height: 200
     },
+    dataRowScroll: {
+        paddingTop: 1
+    },
 
 })
 
