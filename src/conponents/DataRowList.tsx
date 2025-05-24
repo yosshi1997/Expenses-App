@@ -13,6 +13,7 @@ interface Props {
 const ColList = ({ year, month, sum, income1, income2, expense1, expense2, expense3 }: Props): JSX.Element => {
     return (
         <View style={[styles.dataRowList]}>
+            <View style={styles.horizontalScrollMargin}></View>
             <View style={styles.dataYearCol}>
                 <Text style={styles.dataText}>{year}</Text>
             </View>
@@ -37,6 +38,7 @@ const ColList = ({ year, month, sum, income1, income2, expense1, expense2, expen
             <View style={styles.dataExpenseCol}>
                 <Text style={styles.dataText}>{expense3}</Text>
             </View>
+            <View style={styles.horizontalScrollMargin}></View>
         </View>
     )
 }
@@ -91,6 +93,9 @@ const styles = StyleSheet.create({
         paddingBottom: 8,
         fontWeight: "bold"
     },
+    horizontalScrollMargin: {
+        width: 20
+    }
 })
 
 export default ColList

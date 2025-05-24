@@ -10,6 +10,7 @@ interface Props {
 const ColList = ({ income1, income2, expense1, expense2, expense3 }: Props): JSX.Element => {
     return (
         <View style={styles.colList}>
+            <View style={styles.horizontalScrollMargin}></View>
             <View style={styles.yearCol}>
                 <Text style={styles.colText}>Y</Text>
             </View>
@@ -34,7 +35,7 @@ const ColList = ({ income1, income2, expense1, expense2, expense3 }: Props): JSX
             <View style={styles.expenseCol}>
                 <Text style={styles.colText}>{expense3}</Text>
             </View>
-
+            <View style={styles.horizontalScrollMargin}></View>
         </View>
     )
 }
@@ -91,6 +92,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
+    horizontalScrollMargin: {
+        width: 10
+    }
 })
 
 export default ColList
