@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
     },
     userEditButton: {
         backgroundColor: "transparent",
-        borderColor: 'transparent'
+        borderColor: 'transparent',
+        color: "rgba(0, 0, 0,0.4)"
     }
 })
 
