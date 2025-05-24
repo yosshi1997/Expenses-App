@@ -5,6 +5,7 @@ import Header from "../../conponents/Header"
 import AddButton from "../../conponents/AddButton"
 import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
+import StringInput from "../../conponents/StringInput"
 
 const NewData = (): JSX.Element => {
     return (
@@ -13,16 +14,8 @@ const NewData = (): JSX.Element => {
             {/* header */}
             <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>New Data</Header>
 
-            <View style={styles.inputLabel}>
-                <Text style={styles.inputLabelText}>
-                    User
-                </Text>
-            </View>
-            <View style={styles.inputString}>
-                <Text style={styles.inputText}>
-                    UserName
-                </Text>
-            </View>
+
+            <StringInput label="User" defaultValue="Yoshimasa"></StringInput>
 
 
             <View style={styles.inputLabel}>
@@ -48,17 +41,7 @@ const NewData = (): JSX.Element => {
                 </Text>
             </View>
 
-
-            <View style={styles.inputLabel}>
-                <Text style={styles.inputLabelText}>
-                    Category
-                </Text>
-            </View>
-            <View style={styles.inputString}>
-                <Text style={styles.inputText}>
-                    SBI銀行
-                </Text>
-            </View>
+            <StringInput label="Category">SBI銀行</StringInput>
 
 
             <View style={styles.inputLabel}>
