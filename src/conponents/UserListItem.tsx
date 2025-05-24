@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from "react-native"
-
+import { MaterialIcons } from "@expo/vector-icons"
 interface Props {
     children: string;
     updateTime: string;
@@ -16,7 +16,9 @@ const UserListItem = (props: Props): JSX.Element => {
                     <Text style={styles.updateTime}>{updateTime}</Text>
                 </View>
                 <View style={styles.userListItemButton}>
-                    <Text style={styles.userEditButton}>Edit</Text>
+                    <Text style={styles.userEditButton}>
+                        <MaterialIcons name="edit" size={20} />
+                    </Text>
                 </View>
             </View >
         </View >
