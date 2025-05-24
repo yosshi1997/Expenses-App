@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, ScrollView } from "react-native"
 import { JSX } from "react"
 
 import Header from "../../conponents/Header"
@@ -25,7 +25,7 @@ const UserDtail = (): JSX.Element => {
             </ColList>
 
             {/* DatarowScroll */}
-            <View style={styles.dataRowScroll}>
+            <ScrollView style={styles.dataRowScroll}>
                 {/* DatarowList */}
                 <DataRowList
                     year={2025}
@@ -59,8 +59,268 @@ const UserDtail = (): JSX.Element => {
                     expense2={-0}
                     expense3={-120000}>
                 </DataRowList>
-
-            </View>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <DataRowList
+                    year={2025}
+                    month={12}
+                    sum={38307}
+                    income1={194129}
+                    income2={20000}
+                    expense1={-55192}
+                    expense2={-0}
+                    expense3={-120000}>
+                </DataRowList>
+                <View style={styles.scrollMargin}></View>
+            </ScrollView>
 
             {/* rotate={true}なら45度回転 */}
             <AddButton rotate={true} />
@@ -77,6 +337,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "rgb(255, 255, 255)"
+    },
+    dataRowScroll: {
+        paddingTop: 1,
+        flexGrow: 1, // 内容に応じてスクロール可能にする
+    },
+    scrollMargin: {
+        height: 200
     }
 })
 

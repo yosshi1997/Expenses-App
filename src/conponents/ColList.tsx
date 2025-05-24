@@ -51,41 +51,41 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     colText: {
-        fontSize: 10,
+        fontSize: 9,
         height: 16,
         paddingTop: 3,
         paddingBottom: 3
     },
     yearCol: {
-        width: 32,
+        width: "8%",
         alignItems: "center",
         backgroundColor: "rgba(255,255,255,1)",
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
     monthCol: {
-        width: 16,
+        width: "4%",
         alignItems: "center",
         backgroundColor: "rgba(255,255,255,1)",
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
     sumCol: {
-        width: 64,
+        width: "14%",
         alignItems: "center",
         backgroundColor: "rgba(255,255,255,1)",
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
     incomeCol: {
-        width: 64,
+        width: "14%",
         alignItems: "center",
         backgroundColor: "rgba(0,0,255,0.25)",
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
     expenseCol: {
-        width: 64,
+        width: "14%",
         alignItems: "center",
         backgroundColor: "rgba(255,0,0,0.25)",
         borderWidth: 1,

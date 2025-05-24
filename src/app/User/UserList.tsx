@@ -1,5 +1,5 @@
 import { JSX } from "react"
-import { View, StyleSheet } from "react-native"
+import { Text, View, StyleSheet, ScrollView } from "react-native"
 
 import Header from "../../conponents/Header"
 import UserListItem from "../../conponents/UserListItem"
@@ -14,11 +14,18 @@ const UserList = (): JSX.Element => {
             <Header signUpVisible={false} logoutVisible={true} backVisible={false} editVisible={true}>Main Menu</Header>
 
             {/* User List Scroll */}
-            <View>
+            <ScrollView style={styles.userListScroll}>
                 <UserListItem updateTime="2025.04.30 13:14 更新">Yoshimasa</UserListItem>
                 <UserListItem updateTime="2025.04.30 14:14 更新">Aya</UserListItem>
                 <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
-            </View>
+                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
+                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
+                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
+                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
+                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
+                <UserListItem updateTime="2025.04.30 15:14 更新">Fam</UserListItem>
+                <View style={styles.scrollMargin}></View>
+            </ScrollView>
 
             {/* rotate={true}なら45度回転 */}
             <AddButton rotate={true} />
@@ -34,6 +41,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "rgb(255, 255, 255)"
+    },
+    userListScroll: {
+        flexGrow: 1, // 内容に応じてスクロール可能にする
+    },
+    scrollMargin: {
+        height: 200
     }
 })
 
