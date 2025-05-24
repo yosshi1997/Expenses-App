@@ -11,15 +11,11 @@ const NewUser = (): JSX.Element => {
         <View style={styles.container}>
 
             {/* header */}
-            <Header signUpVisible={false} logoutVisible={true} backVisible={true} editVisible={true}>Yoshimasa</Header>
+            <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>New User</Header>
 
 
-            {/* rotate={true}なら45度回転 */}
-            <AddButton rotate={true} />
 
-            {/* visible={true}なら表示 */}
-            <NewUserButton visible={true}>New Category</NewUserButton>
-            <FooterButton>New Data</FooterButton>
+            <FooterButton>Add New User</FooterButton>
         </View>
     )
 }

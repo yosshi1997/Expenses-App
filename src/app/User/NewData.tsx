@@ -11,15 +11,22 @@ const NewData = (): JSX.Element => {
         <View style={styles.container}>
 
             {/* header */}
-            <Header signUpVisible={false} logoutVisible={true} backVisible={true} editVisible={true}>Yoshimasa</Header>
+            <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>New Data</Header>
+
+            <View style={styles.inputLabel}>
+                <View style={styles.inputString}>
+
+                </View>
+            </View>
+
+            <View style={styles.inputLabel}>
+                <View style={styles.inputNumber}>
+
+                </View>
+            </View>
 
 
-            {/* rotate={true}なら45度回転 */}
-            <AddButton rotate={true} />
-
-            {/* visible={true}なら表示 */}
-            <NewUserButton visible={true}>New Category</NewUserButton>
-            <FooterButton>New Data</FooterButton>
+            <FooterButton>Add New Data</FooterButton>
         </View>
     )
 }
@@ -27,8 +34,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "rgb(255, 255, 255)"
-    }
+    },
+    inputLabel: {
 
+    },
+    inputString: {
+
+    },
+    inputNumber: {
+
+    }
 })
 
 export default NewData
