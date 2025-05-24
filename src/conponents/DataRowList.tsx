@@ -43,35 +43,35 @@ const ColList = ({ year, month, sum, income1, income2, expense1, expense2, expen
 
 const styles = StyleSheet.create({
     dataYearCol: {
-        width: "8%",
+        width: 32,
         alignItems: "center",
         borderWidth: 1,
         backgroundColor: "rgba(255,255,255,1)",
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
     dataMonthCol: {
-        width: "4%",
+        width: 16,
         alignItems: "center",
         borderWidth: 1,
         backgroundColor: "rgba(255,255,255,1)",
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
     dataSumCol: {
-        width: "14%",
+        width: 64,
         alignItems: "center",
         borderWidth: 1,
         backgroundColor: "rgba(255,255,255,1)",
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
     dataIncomeCol: {
-        width: "14%",
+        width: 64,
         alignItems: "center",
         borderWidth: 1,
         backgroundColor: "rgba(255,255,255,1)",
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
     dataExpenseCol: {
-        width: "14%",
+        width: 64,
         alignItems: "center",
         borderWidth: 1,
         backgroundColor: "rgba(255,255,255,1)",
