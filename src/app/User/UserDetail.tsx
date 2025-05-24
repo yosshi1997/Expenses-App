@@ -61,7 +61,7 @@ const UserDtail = (): JSX.Element => {
                 <DataRowList></DataRowList>
                 <DataRowList></DataRowList>
                 <DataRowList></DataRowList>
-
+                <View style={styles.scrollMargin}></View>
             </ScrollView>
 
             {/* rotate={true}なら45度回転 */}
@@ -79,6 +79,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "rgb(255, 255, 255)"
+    },
+    scrollMargin: {
+        height: 200
     },
 
 })
