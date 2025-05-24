@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         height: 24,
         width: "100%",
         marginTop: 16,
-        marginBottom: 16,
+        marginBottom: 8,
         backgroundColor: "rgb(255,255,255)",
         justifyContent: "center",
         alignItems: "center"
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         borderColor: 'rgba(0, 0, 0,0.5)'
     },
     horizontalScrollMargin: {
-        width: 10
+        width: 20
     }
 })
 
