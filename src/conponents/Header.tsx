@@ -1,6 +1,6 @@
 
 import { View, Text, StyleSheet } from "react-native"
-
+import { MaterialIcons } from "@expo/vector-icons"
 interface Props {
     children: string;
     signUpVisible?: boolean
@@ -21,7 +21,9 @@ const Header = ({
             < View style={styles.headerBottom} >
                 <Text style={[styles.headerBackButton, backVisible && styles.backVisible]}>＜Back</Text>
                 <Text style={styles.headerTitle}>{children}</Text>
-                <Text style={[styles.headerEditButton, editVisible && styles.editVisible]}>Edit</Text>
+                <Text style={[styles.headerEditButton, editVisible && styles.editVisible]}>
+                    <MaterialIcons name="edit" size={20} />
+                </Text>
             </View >
         </View >
     )
