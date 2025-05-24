@@ -15,55 +15,59 @@ const UserDtail = (): JSX.Element => {
             {/* header */}
             <Header signUpVisible={false} logoutVisible={true} backVisible={true} editVisible={true}>Yoshimasa</Header>
 
-            {/* colList */}
-            <ColList
-                income1={"SBI銀行"}
-                income2={"楽天銀行"}
-                expense1={"JALカード"}
-                expense2={"その他現金"}
-                expense3={"共通口座振込"}>
-            </ColList>
 
-            {/* DatarowScroll */}
-            <ScrollView style={styles.dataRowScroll}>
-                {/* DatarowList */}
-                <DataRowList
-                    year={2025}
-                    month={12}
-                    sum={38307}
-                    income1={194129}
-                    income2={20000}
-                    expense1={-55192}
-                    expense2={-0}
-                    expense3={-120000}>
-                </DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <DataRowList></DataRowList>
-                <View style={styles.scrollMargin}></View>
+            <ScrollView horizontal style={styles.horizontalScroll}>
+                <View>
+                    {/* colList */}
+                    <ColList
+                        income1={"SBI銀行"}
+                        income2={"楽天銀行"}
+                        expense1={"JALカード"}
+                        expense2={"その他現金"}
+                        expense3={"共通口座振込"}>
+                    </ColList>
+
+                    {/* DatarowScroll */}
+                    <ScrollView style={styles.dataRowScroll}>
+                        {/* DatarowList */}
+                        <DataRowList
+                            year={2025}
+                            month={12}
+                            sum={38307}
+                            income1={194129}
+                            income2={20000}
+                            expense1={-55192}
+                            expense2={-0}
+                            expense3={-120000}>
+                        </DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <DataRowList></DataRowList>
+                        <View style={styles.scrollMargin}></View>
+                    </ScrollView>
+                </View>
             </ScrollView>
-
             {/* rotate={true}なら45度回転 */}
             <AddButton rotate={true} />
 
