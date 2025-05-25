@@ -12,7 +12,7 @@ const UserDtail = (): JSX.Element => {
         <View style={styles.container}>
 
             {/* header */}
-            <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>Yoshimasa</Header>
+            <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>Edit Category</Header>
 
             {/* colListReview */}
             <ScrollView horizontal style={styles.horizontalScroll}>

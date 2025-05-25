@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, TextInput, StyleSheet } from "react-native"
+import { FontAwesome, AntDesign } from "@expo/vector-icons"
 
 interface Props {
     categoryName: string;
@@ -9,18 +10,23 @@ const ColListItem = ({ categoryName, categoryType }: Props): JSX.Element => {
         <View style={styles.scrollContent}>
             <View style={styles.categoryList}>
                 <View style={styles.categoryName}>
-                    <Text style={styles.categoryNameText}>
+                    <TextInput style={styles.categoryNameText}>
                         {categoryName}
-                    </Text>
+                    </TextInput>
                 </View>
                 <View style={styles.categoryType}>
-                    <Text style={styles.categoryTypeText}>
+                    <TextInput style={styles.categoryTypeText}>
                         {categoryType}
+                    </TextInput>
+                </View>
+                <View style={styles.editIcon}>
+                    <Text style={styles.editIconText}>
+                        <FontAwesome name="sort" size={20} />
                     </Text>
                 </View>
-                <View style={styles.sortIcon}>
-                    <Text style={styles.sortIconText}>
-                        三
+                <View style={styles.editIcon}>
+                    <Text style={styles.editIconText}>
+                        <AntDesign name="delete" size={20} />
                     </Text>
                 </View>
             </View>
@@ -40,35 +46,35 @@ const styles = StyleSheet.create({
     categoryName: {
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0,1)',
-        width: "40%",
-        height: 60,
+        width: "30%",
+        height: 40,
         justifyContent: "center",
         alignItems: "center"
     },
     categoryNameText: {
-        fontSize: 16
+        fontSize: 12
     },
     categoryType: {
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0,1)',
-        width: "40%",
-        height: 60,
+        width: "30%",
+        height: 40,
         justifyContent: "center",
         alignItems: "center"
     },
     categoryTypeText: {
-        fontSize: 16
+        fontSize: 12
     },
-    sortIcon: {
+    editIcon: {
         borderWidth: 1,
         borderColor: 'rgba(0, 0, 0, 1)',
         width: "20%",
-        height: 60,
+        height: 40,
         justifyContent: "center",
         alignItems: "center"
     },
-    sortIconText: {
-        fontSize: 16
+    editIconText: {
+        fontSize: 12
     }
 })
 
