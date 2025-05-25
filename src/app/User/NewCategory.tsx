@@ -21,7 +21,7 @@ const NewCategory = (): JSX.Element => {
             <StringInput label="Income or Expense">Income</StringInput>
 
 
-            <FooterButton>Add New Category</FooterButton>
+            <FooterButton>{"Add New\nCategory"}</FooterButton>
         </View>
     )
 }
