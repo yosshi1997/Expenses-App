@@ -5,6 +5,7 @@ import { JSX } from "react"
 import Header from "../../conponents/Header"
 import FooterButton from "../../conponents/FooterButton"
 import ColList from "../../conponents/ColList"
+import ColListItem from "../../conponents/ColListItem"
 
 const UserDtail = (): JSX.Element => {
     return (
@@ -27,25 +28,11 @@ const UserDtail = (): JSX.Element => {
             {/* colListScroll */}
             <ScrollView style={styles.colListScroll}>
                 {/* colListItem */}
-                <View style={styles.scrollContent}>
-                    <View style={styles.categoryList}>
-                        <View style={styles.categoryName}>
-                            <Text style={styles.categoryNameText}>
-                                SBI銀行
-                            </Text>
-                        </View>
-                        <View style={styles.categoryType}>
-                            <Text style={styles.categoryTypeText}>
-                                Income
-                            </Text>
-                        </View>
-                        <View style={styles.sortIcon}>
-                            <Text style={styles.sortIconText}>
-                                三
-                            </Text>
-                        </View>
-                    </View>
-                </View>
+                <ColListItem categoryName="SBI銀行" categoryType="Income" />
+                <ColListItem categoryName="SBI銀行" categoryType="Income" />
+                <ColListItem categoryName="SBI銀行" categoryType="Income" />
+                <ColListItem categoryName="SBI銀行" categoryType="Income" />
+                <ColListItem categoryName="SBI銀行" categoryType="Income" />
             </ScrollView>
 
             <FooterButton>Save</FooterButton>
