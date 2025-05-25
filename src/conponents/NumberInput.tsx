@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, TextInput, StyleSheet } from "react-native"
 
 interface Props {
     label: string;
@@ -14,9 +14,9 @@ const NumberInput = ({ label, defaultValue, children }: Props): JSX.Element => {
                 </Text>
             </View>
             <View style={styles.inputString}>
-                <Text style={styles.inputText}>
+                <TextInput style={styles.inputText}>
                     {defaultValue ?? children}
-                </Text>
+                </TextInput>
             </View>
         </View>
     )
