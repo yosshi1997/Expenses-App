@@ -5,6 +5,7 @@ import Header from "../../conponents/Header"
 import AddButton from "../../conponents/AddButton"
 import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
+import StringInput from "../../conponents/StringInput"
 
 const NewCategory = (): JSX.Element => {
     return (
@@ -13,6 +14,11 @@ const NewCategory = (): JSX.Element => {
             {/* header */}
             <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>New Category</Header>
 
+            <StringInput label="User" defaultValue="Yoshimasa"></StringInput>
+
+            <StringInput label="Category Name">SBI銀行</StringInput>
+
+            <StringInput label="Income or Expense">Income</StringInput>
 
 
             <FooterButton>Add New Category</FooterButton>
