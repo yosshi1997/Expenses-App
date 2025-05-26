@@ -1,13 +1,14 @@
 import { View, Text, StyleSheet } from "react-native"
 
 interface Props {
-    rotate?: boolean
+    rotate?: boolean;
+    children: string;
 }
 
-const AddButton = ({ rotate = false }: Props): JSX.Element => {
+const AddButton = ({ children, rotate = false }: Props): JSX.Element => {
     return (
         <View style={[styles.addButton, rotate && styles.addButtonReset]}>
-            <Text style={styles.addButtonText}>＋</Text>
+            <Text style={styles.addButtonText}>{children}</Text>
         </View >
     )
 }

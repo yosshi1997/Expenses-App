@@ -17,7 +17,7 @@ const SignUp = (): JSX.Element => {
             <StringInput label="Mail Address"></StringInput>
 
             <StringInput label="Password"></StringInput>
-
+            <AddButton rotate={false}>∨</AddButton>
             <FooterButton>SignUp</FooterButton>
         </View>
     )

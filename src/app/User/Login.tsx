@@ -18,6 +18,7 @@ const Login = (): JSX.Element => {
 
             <StringInput label="Password"></StringInput>
 
+            <AddButton rotate={false}>∨</AddButton>
             <FooterButton>Login</FooterButton>
         </View>
     )

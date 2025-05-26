@@ -21,6 +21,7 @@ const NewCategory = (): JSX.Element => {
             <StringInput label="Income or Expense">Income</StringInput>
 
 
+            <AddButton rotate={false}>∨</AddButton>
             <FooterButton>{"Add New\nCategory"}</FooterButton>
         </View>
     )

@@ -6,7 +6,7 @@ import Header from "../../conponents/Header"
 import FooterButton from "../../conponents/FooterButton"
 import ColList from "../../conponents/ColList"
 import ColListItem from "../../conponents/ColListItem"
-
+import AddButton from "../../conponents/AddButton"
 const UserDtail = (): JSX.Element => {
     return (
         <View style={styles.container}>
@@ -34,7 +34,7 @@ const UserDtail = (): JSX.Element => {
                 <ColListItem categoryName="SBI銀行" categoryType="Income" />
                 <ColListItem categoryName="SBI銀行" categoryType="Income" />
             </ScrollView>
-
+            <AddButton rotate={false}>∨</AddButton>
             <FooterButton>Save</FooterButton>
         </View >
     )

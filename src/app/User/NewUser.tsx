@@ -19,6 +19,7 @@ const NewUser = (): JSX.Element => {
 
             <NumberInput label="Initial Value">50000</NumberInput>
 
+            <AddButton rotate={false}>∨</AddButton>
 
             <FooterButton>Add New User</FooterButton>
         </View>

@@ -70,7 +70,7 @@ const UserDtail = (): JSX.Element => {
                 </View>
             </ScrollView>
             {/* rotate={true}なら45度回転 */}
-            <AddButton rotate={true} />
+            <AddButton rotate={true}>+</AddButton>
 
             {/* visible={true}なら表示 */}
             <NewUserButton visible={true}>New Category</NewUserButton>

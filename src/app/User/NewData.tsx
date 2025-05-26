@@ -1,18 +1,17 @@
 import { JSX } from "react"
-import { Text, View, StyleSheet } from "react-native"
+import { Text, View, StyleSheet, KeyboardAvoidingView } from "react-native"
 
 import Header from "../../conponents/Header"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
 import NumberInput from "../../conponents/NumberInput"
+import AddButton from "../../conponents/AddButton"
 
 const NewData = (): JSX.Element => {
     return (
         <View style={styles.container}>
-
             {/* header */}
             <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>New Data</Header>
-
 
             <StringInput label="User" defaultValue="Yoshimasa"></StringInput>
 
@@ -29,9 +28,9 @@ const NewData = (): JSX.Element => {
                     ※収入は正の値、支出は負の値で入力
                 </Text>
             </View>
-
+            <AddButton rotate={false}>∨</AddButton>
             <FooterButton>Add New Data</FooterButton>
-        </View>
+        </View >
     )
 }
 const styles = StyleSheet.create({
