@@ -1,15 +1,16 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 
 interface Props {
     rotate?: boolean;
     children: string;
+    onPress?: () => void;
 }
 
-const AddButton = ({ children, rotate = false }: Props): JSX.Element => {
+const AddButton = ({ children, rotate = false, onPress }: Props): JSX.Element => {
     return (
-        <View style={[styles.addButton, rotate && styles.addButtonReset]}>
+        <TouchableOpacity onPress={onPress} style={[styles.addButton, rotate && styles.addButtonReset]}>
             <Text style={styles.addButtonText}>{children}</Text>
-        </View >
+        </TouchableOpacity >
     )
 }
 
