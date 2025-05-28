@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet } from "react-native"
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native"
 import { FontAwesome, AntDesign } from "@expo/vector-icons"
 
 interface Props {
@@ -19,16 +19,16 @@ const ColListItem = ({ categoryName, categoryType }: Props): JSX.Element => {
                         {categoryType}
                     </TextInput>
                 </View>
-                <View style={styles.editIcon}>
+                <TouchableOpacity style={styles.editIcon}>
                     <Text style={styles.editIconText}>
                         <FontAwesome name="sort" size={20} />
                     </Text>
-                </View>
-                <View style={styles.editIcon}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.editIcon}>
                     <Text style={styles.editIconText}>
                         <AntDesign name="delete" size={20} />
                     </Text>
-                </View>
+                </TouchableOpacity>
             </View>
         </View>
     )
