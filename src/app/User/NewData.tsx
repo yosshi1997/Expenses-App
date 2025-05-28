@@ -7,6 +7,10 @@ import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
 import NumberInput from "../../conponents/NumberInput"
 import AddButton from "../../conponents/AddButton"
+import SignUpButton from "../../conponents/SignUpButton"
+import LogoutButton from "../../conponents/LogoutButton"
+import BackButton from "../../conponents/BackButton"
+import EditButton from "../../conponents/EditButton"
 
 const handlePress = (): void => {
     //Add New Data
@@ -17,7 +21,11 @@ const NewData = (): JSX.Element => {
     return (
         <View style={styles.container}>
             {/* header */}
-            <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>New Data</Header>
+            <Header>NewData</Header>
+            <SignUpButton signUpVisible={false}></SignUpButton>
+            <LogoutButton logoutVisible={false}></LogoutButton>
+            <BackButton backVisible={true}></BackButton>
+            <EditButton editVisible={false}></EditButton>
 
             <StringInput label="User" defaultValue="Yoshimasa"></StringInput>
 

@@ -7,6 +7,10 @@ import AddButton from "../../conponents/AddButton"
 import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
+import SignUpButton from "../../conponents/SignUpButton"
+import LogoutButton from "../../conponents/LogoutButton"
+import BackButton from "../../conponents/BackButton"
+import EditButton from "../../conponents/EditButton"
 
 
 const Login = (): JSX.Element => {
@@ -14,7 +18,11 @@ const Login = (): JSX.Element => {
         <View style={styles.container}>
 
             {/* header */}
-            <Header signUpVisible={false} loginVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>Trend</Header>
+            <Header>TrendCheck</Header>
+            <SignUpButton signUpVisible={false}></SignUpButton>
+            <LogoutButton logoutVisible={false}></LogoutButton>
+            <BackButton backVisible={true}></BackButton>
+            <EditButton editVisible={false}></EditButton>
 
         </View>
     )

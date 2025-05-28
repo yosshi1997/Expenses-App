@@ -7,6 +7,10 @@ import FooterButton from "../../conponents/FooterButton"
 import ColList from "../../conponents/ColList"
 import ColListItem from "../../conponents/ColListItem"
 import AddButton from "../../conponents/AddButton"
+import SignUpButton from "../../conponents/SignUpButton"
+import LogoutButton from "../../conponents/LogoutButton"
+import BackButton from "../../conponents/BackButton"
+import EditButton from "../../conponents/EditButton"
 
 const handlePress = (): void => {
     //Category Save
@@ -18,7 +22,11 @@ const UserDtail = (): JSX.Element => {
         <View style={styles.container}>
 
             {/* header */}
-            <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>Edit Category</Header>
+            <Header>Edit Category</Header>
+            <SignUpButton signUpVisible={false}></SignUpButton>
+            <LogoutButton logoutVisible={false}></LogoutButton>
+            <BackButton backVisible={true}></BackButton>
+            <EditButton editVisible={false}></EditButton>
 
             {/* colListReview */}
             <ScrollView horizontal style={styles.horizontalScroll}>

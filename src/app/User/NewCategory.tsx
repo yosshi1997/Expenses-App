@@ -4,9 +4,12 @@ import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
 import AddButton from "../../conponents/AddButton"
-import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
+import SignUpButton from "../../conponents/SignUpButton"
+import LogoutButton from "../../conponents/LogoutButton"
+import BackButton from "../../conponents/BackButton"
+import EditButton from "../../conponents/EditButton"
 
 const handlePress = (): void => {
     //Add New Category
@@ -18,8 +21,11 @@ const NewCategory = (): JSX.Element => {
         <View style={styles.container}>
 
             {/* header */}
-            <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>New Category</Header>
-
+            <Header>New Category</Header>
+            <SignUpButton signUpVisible={false}></SignUpButton>
+            <LogoutButton logoutVisible={false}></LogoutButton>
+            <BackButton backVisible={true}></BackButton>
+            <EditButton editVisible={false}></EditButton>
             <StringInput label="User" defaultValue="Yoshimasa"></StringInput>
 
             <StringInput label="Category Name">SBI銀行</StringInput>
