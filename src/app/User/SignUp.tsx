@@ -1,11 +1,17 @@
 import { JSX } from "react"
 import { Text, View, StyleSheet } from "react-native"
+import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
 import AddButton from "../../conponents/AddButton"
 import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
+
+const handlePress = (): void => {
+    //会員登録
+    router.push("/User/UserList")
+}
 
 const SignUp = (): JSX.Element => {
     return (
@@ -18,7 +24,7 @@ const SignUp = (): JSX.Element => {
 
             <StringInput label="Password"></StringInput>
             <AddButton rotate={false}>∨</AddButton>
-            <FooterButton>SignUp</FooterButton>
+            <FooterButton onPress={handlePress}>SignUp</FooterButton>
         </View>
     )
 }
