@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
 interface Props {
     children: string;
@@ -8,20 +8,20 @@ interface Props {
 const UserListItem = (props: Props): JSX.Element => {
     const { children, updateTime } = props
     return (
-        < View >
+        <TouchableOpacity>
             {/* User List Item */}
-            < View style={styles.userListItem} >
+            <View style={styles.userListItem} >
                 <View style={styles.userNameAndTime}>
                     <Text style={styles.userName}>{children}</Text>
                     <Text style={styles.updateTime}>{updateTime}</Text>
                 </View>
-                <View style={styles.userListItemButton}>
+                <TouchableOpacity style={styles.userListItemButton}>
                     <Text style={styles.userEditButton}>
                         <MaterialIcons name="edit" size={20} />
                     </Text>
-                </View>
+                </TouchableOpacity>
             </View >
-        </View >
+        </TouchableOpacity>
     )
 }
 
