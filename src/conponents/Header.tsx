@@ -1,5 +1,5 @@
 
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
 interface Props {
     children: string;
@@ -13,17 +13,29 @@ const Header = ({
     return (
         < View style={styles.header} >
             {/* header top */}
-            < View >
-                <Text style={[styles.headerSignUpButton, signUpVisible && styles.signUpVisible]}>SignUp</Text>
-                <Text style={[styles.headerLogoutButton, logoutVisible && styles.logoutVisible]}>Logout</Text>
+            < View>
+                <TouchableOpacity>
+                    <Text style={[styles.headerSignUpButton, signUpVisible && styles.signUpVisible]}>SignUp</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Text style={[styles.headerLogoutButton, logoutVisible && styles.logoutVisible]}>Logout</Text>
+                </TouchableOpacity>
             </View >
             {/* header bottom */}
             < View style={styles.headerBottom} >
-                <Text style={[styles.headerBackButton, backVisible && styles.backVisible]}>＜Back</Text>
+                <TouchableOpacity style={[styles.headerBackButton, backVisible && styles.backVisible]}>
+                    <Text style={styles.headerBackButtonText}>＜Back</Text>
+                </TouchableOpacity>
+
                 <Text style={styles.headerTitle}>{children}</Text>
-                <Text style={[styles.headerEditButton, editVisible && styles.editVisible]}>
-                    <MaterialIcons name="edit" size={20} />
-                </Text>
+
+                <TouchableOpacity style={[styles.headerEditButton, editVisible && styles.editVisible]}>
+                    <Text style={styles.headerEditButtonText}>
+                        <MaterialIcons name="edit" size={20} />
+                    </Text>
+                </TouchableOpacity>
+
+
             </View >
         </View >
     )
@@ -68,8 +80,11 @@ const styles = StyleSheet.create({
         position: "absolute",
         right: 20,
         bottom: 16,
-        color: "rgba(255, 255, 255,0.7)",
+
         display: 'none'
+    },
+    headerEditButtonText: {
+        color: "rgba(255, 255, 255,0.7)",
     },
     editVisible: {
         display: 'flex'
@@ -80,6 +95,9 @@ const styles = StyleSheet.create({
         bottom: 16,
         color: "rgba(255, 255, 255,0.7)",
         display: 'none'
+    },
+    headerBackButtonText: {
+        color: "rgba(255, 255, 255,0.7)",
     },
     backVisible: {
         display: 'flex'
