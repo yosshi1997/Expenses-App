@@ -1,11 +1,17 @@
 import { JSX } from "react"
-import { Text, View, StyleSheet } from "react-native"
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native"
 
 import Header from "../../conponents/Header"
 import AddButton from "../../conponents/AddButton"
 import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
+import { Link, router } from "expo-router"
+
+const handlePress = (): void => {
+    //ログイン
+    router.push("/User/UserList")
+}
 
 const Login = (): JSX.Element => {
     return (
@@ -19,7 +25,7 @@ const Login = (): JSX.Element => {
             <StringInput label="Password"></StringInput>
 
             <AddButton rotate={false}>∨</AddButton>
-            <FooterButton>Login</FooterButton>
+            <FooterButton onPress={handlePress}>Login</FooterButton>
         </View>
     )
 }

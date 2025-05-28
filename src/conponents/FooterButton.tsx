@@ -1,12 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 interface Props {
     children: string;
+    onPress?: () => void;
 }
 
 const FooterButton = (props: Props): JSX.Element => {
-    const { children } = props
+    const { children, onPress } = props
     return (
-        <TouchableOpacity style={styles.footerButton}>
+        <TouchableOpacity style={styles.footerButton} onPress={onPress}>
             <Text style={styles.footerButtonText}>{children}</Text>
         </TouchableOpacity>
     )
