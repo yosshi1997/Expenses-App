@@ -17,6 +17,12 @@ const handlePress = (): void => {
     router.push("/User/TrendCheck")
 }
 
+const handleNewUser = (): void => {
+    //Trend Check
+    router.push("/User/NewUser")
+}
+
+
 const UserList = (): JSX.Element => {
     return (
         <View style={styles.container}>
@@ -44,7 +50,7 @@ const UserList = (): JSX.Element => {
             {/* rotate={true}なら45度回転 */}
             <AddButton rotate={true} >+</AddButton>
             {/* visible={true}なら表示 */}
-            <NewUserButton visible={true}>New User</NewUserButton>
+            <NewUserButton visible={true} onPress={handleNewUser}>New User</NewUserButton>
             <FooterButton onPress={handlePress}>Trend Check</FooterButton>
 
         </View >

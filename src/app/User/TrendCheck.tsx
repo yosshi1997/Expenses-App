@@ -21,7 +21,9 @@ const Login = (): JSX.Element => {
             <Header>TrendCheck</Header>
             <SignUpButton signUpVisible={false}></SignUpButton>
             <LogoutButton logoutVisible={false}></LogoutButton>
-            <BackButton backVisible={true}></BackButton>
+            <Link href="/User/UserList" asChild>
+                <BackButton backVisible={true}></BackButton>
+            </Link>
             <EditButton editVisible={false}></EditButton>
 
         </View>

@@ -17,17 +17,29 @@ const handlePress = (): void => {
     //New Data Input
     router.push("/User/NewData")
 }
+const handleEdit = (): void => {
+    //Category Save
+    router.push("/User/EditCategory")
+}
+const handleNewCategory = (): void => {
+    //Category Save
+    router.push("/User/NewCategory")
+}
 
 const UserDtail = (): JSX.Element => {
     return (
         <View style={styles.container}>
 
             {/* header */}
-            <Header>Edit Category</Header>
+            <Header>User Detail</Header>
             <SignUpButton signUpVisible={false}></SignUpButton>
             <LogoutButton logoutVisible={false}></LogoutButton>
-            <BackButton backVisible={true}></BackButton>
-            <EditButton editVisible={true}></EditButton>
+
+            <Link href="/User/UserList" asChild>
+                <BackButton backVisible={true}></BackButton>
+            </Link>
+
+            <EditButton editVisible={true} onPress={handleEdit}></EditButton>
 
             <ScrollView horizontal style={styles.horizontalScroll}>
                 <View>
@@ -60,23 +72,6 @@ const UserDtail = (): JSX.Element => {
                         <DataRowList></DataRowList>
                         <DataRowList></DataRowList>
                         <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
-                        <DataRowList></DataRowList>
                         <View style={styles.scrollMargin}></View>
                     </ScrollView>
                 </View>
@@ -85,7 +80,7 @@ const UserDtail = (): JSX.Element => {
             <AddButton rotate={true}>+</AddButton>
 
             {/* visible={true}なら表示 */}
-            <NewUserButton visible={true}>New Category</NewUserButton>
+            <NewUserButton visible={true} onPress={handleNewCategory}>New Category</NewUserButton>
             <FooterButton onPress={handlePress}>New Data</FooterButton>
 
         </View>

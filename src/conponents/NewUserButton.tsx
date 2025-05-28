@@ -2,11 +2,12 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 interface Props {
     children: string;
     visible?: boolean;
+    onPress?: () => void;
 }
-const NewUserButton = ({ children, visible = false }: Props): JSX.Element => {
+const NewUserButton = ({ children, visible = false, onPress }: Props): JSX.Element => {
 
     return (
-        < TouchableOpacity style={[styles.newUserButton, visible && styles.newUserButtonVisible]}>
+        < TouchableOpacity style={[styles.newUserButton, visible && styles.newUserButtonVisible]} onPress={onPress}>
             <Text style={styles.newUserButtonText}>{children}</Text>
         </TouchableOpacity >
     )

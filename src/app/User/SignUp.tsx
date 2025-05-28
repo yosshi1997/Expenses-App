@@ -24,7 +24,9 @@ const SignUp = (): JSX.Element => {
             <Header>SignUp</Header>
             <SignUpButton signUpVisible={false}></SignUpButton>
             <LogoutButton logoutVisible={false}></LogoutButton>
-            <BackButton backVisible={true}></BackButton>
+            <Link href="/User/Login" asChild>
+                <BackButton backVisible={true}></BackButton>
+            </Link>
             <EditButton editVisible={false}></EditButton>
 
             <StringInput label="Mail Address"></StringInput>

@@ -17,6 +17,11 @@ const handlePress = (): void => {
     router.push("/User/UserDetail")
 }
 
+const handleBack = (): void => {
+    //Category Save
+    router.back()
+}
+
 const NewData = (): JSX.Element => {
     return (
         <View style={styles.container}>
@@ -24,7 +29,7 @@ const NewData = (): JSX.Element => {
             <Header>NewData</Header>
             <SignUpButton signUpVisible={false}></SignUpButton>
             <LogoutButton logoutVisible={false}></LogoutButton>
-            <BackButton backVisible={true}></BackButton>
+            <BackButton backVisible={true} onPress={handleBack}></BackButton>
             <EditButton editVisible={false}></EditButton>
 
             <StringInput label="User" defaultValue="Yoshimasa"></StringInput>

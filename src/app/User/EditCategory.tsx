@@ -17,6 +17,11 @@ const handlePress = (): void => {
     router.push("/User/UserDetail")
 }
 
+const handleBack = (): void => {
+    //Category Save
+    router.back()
+}
+
 const UserDtail = (): JSX.Element => {
     return (
         <View style={styles.container}>
@@ -25,7 +30,7 @@ const UserDtail = (): JSX.Element => {
             <Header>Edit Category</Header>
             <SignUpButton signUpVisible={false}></SignUpButton>
             <LogoutButton logoutVisible={false}></LogoutButton>
-            <BackButton backVisible={true}></BackButton>
+            <BackButton backVisible={true} onPress={handleBack}></BackButton>
             <EditButton editVisible={false}></EditButton>
 
             {/* colListReview */}

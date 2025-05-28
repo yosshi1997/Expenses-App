@@ -3,11 +3,13 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 
 interface Props {
     backVisible?: boolean
+    onPress?: () => void;
 }
-const BackButton = ({ backVisible = false }: Props): JSX.Element => {
+
+const BackButton = ({ backVisible = false, onPress }: Props): JSX.Element => {
     return (
         <View>
-            <TouchableOpacity style={[styles.headerBackButton, backVisible && styles.backVisible]}>
+            <TouchableOpacity style={[styles.headerBackButton, backVisible && styles.backVisible]} onPress={onPress}>
                 <Text style={styles.headerBackButtonText}>＜Back</Text>
             </TouchableOpacity>
         </View >

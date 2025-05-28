@@ -22,7 +22,9 @@ const Login = (): JSX.Element => {
 
             {/* header */}
             <Header>Login</Header>
-            <SignUpButton signUpVisible={true}></SignUpButton>
+            <Link href="/User/SignUp" asChild>
+                <SignUpButton signUpVisible={true} ></SignUpButton>
+            </Link>
             <LogoutButton logoutVisible={false}></LogoutButton>
             <BackButton backVisible={false}></BackButton>
             <EditButton editVisible={false}></EditButton>

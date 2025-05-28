@@ -4,11 +4,12 @@ import { MaterialIcons } from "@expo/vector-icons"
 
 interface Props {
     editVisible?: boolean
+    onPress?: () => void;
 }
-const Header = ({ editVisible = false }: Props): JSX.Element => {
+const Header = ({ editVisible = false, onPress }: Props): JSX.Element => {
     return (
         <View>
-            <TouchableOpacity style={[styles.headerEditButton, editVisible && styles.editVisible]}>
+            <TouchableOpacity style={[styles.headerEditButton, editVisible && styles.editVisible]} onPress={onPress}>
                 <Text style={styles.headerEditButtonText}>
                     <MaterialIcons name="edit" size={20} />
                 </Text>
