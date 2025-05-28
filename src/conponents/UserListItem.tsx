@@ -3,12 +3,13 @@ import { MaterialIcons } from "@expo/vector-icons"
 interface Props {
     children: string;
     updateTime: string;
+    onPress?: () => void;
 }
 
 const UserListItem = (props: Props): JSX.Element => {
-    const { children, updateTime } = props
+    const { children, updateTime, onPress } = props
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
             {/* User List Item */}
             <View style={styles.userListItem} >
                 <View style={styles.userNameAndTime}>
