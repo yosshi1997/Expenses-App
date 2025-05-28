@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 interface Props {
     children: string;
 }
@@ -6,9 +6,9 @@ interface Props {
 const FooterButton = (props: Props): JSX.Element => {
     const { children } = props
     return (
-        <View style={styles.footerButton}>
+        <TouchableOpacity style={styles.footerButton}>
             <Text style={styles.footerButtonText}>{children}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 

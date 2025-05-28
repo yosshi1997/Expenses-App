@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 interface Props {
     children: string;
     visible?: boolean;
@@ -6,9 +6,9 @@ interface Props {
 const NewUserButton = ({ children, visible = false }: Props): JSX.Element => {
 
     return (
-        <View style={[styles.newUserButton, visible && styles.newUserButtonVisible]}>
+        < TouchableOpacity style={[styles.newUserButton, visible && styles.newUserButtonVisible]}>
             <Text style={styles.newUserButtonText}>{children}</Text>
-        </View>
+        </TouchableOpacity >
     )
 }
 
