@@ -12,7 +12,7 @@ const SignUp = (): JSX.Element => {
         <View style={styles.container}>
 
             {/* header */}
-            <Header signUpVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>SignUp</Header>
+            <Header signUpVisible={false} loginVisible={true} logoutVisible={false} backVisible={false} editVisible={false}>SignUp</Header>
 
             <StringInput label="Mail Address"></StringInput>
 
