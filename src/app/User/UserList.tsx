@@ -7,10 +7,8 @@ import UserListItem from "../../conponents/UserListItem"
 import AddButton from "../../conponents/AddButton"
 import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
-import SignUpButton from "../../conponents/SignUpButton"
 import LogoutButton from "../../conponents/LogoutButton"
-import BackButton from "../../conponents/BackButton"
-import EditButton from "../../conponents/EditButton"
+
 
 const handlePress = (): void => {
     //Trend Check
@@ -28,10 +26,7 @@ const UserList = (): JSX.Element => {
         <View style={styles.container}>
             {/* header */}
             <Header>Main Menu</Header>
-            <SignUpButton signUpVisible={false}></SignUpButton>
             <LogoutButton logoutVisible={true}></LogoutButton>
-            <BackButton backVisible={false}></BackButton>
-            <EditButton editVisible={false}></EditButton>
 
             {/* User List Scroll */}
             <ScrollView style={styles.userListScroll}>

@@ -7,9 +7,6 @@ import AddButton from "../../conponents/AddButton"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
 import SignUpButton from "../../conponents/SignUpButton"
-import LogoutButton from "../../conponents/LogoutButton"
-import BackButton from "../../conponents/BackButton"
-import EditButton from "../../conponents/EditButton"
 
 const handlePress = (): void => {
     //ログイン
@@ -25,9 +22,6 @@ const Login = (): JSX.Element => {
             <Link href="/User/SignUp" asChild>
                 <SignUpButton signUpVisible={true} ></SignUpButton>
             </Link>
-            <LogoutButton logoutVisible={false}></LogoutButton>
-            <BackButton backVisible={false}></BackButton>
-            <EditButton editVisible={false}></EditButton>
 
             <StringInput label="Mail Address"></StringInput>
 

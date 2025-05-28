@@ -8,8 +8,6 @@ import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
 import ColList from "../../conponents/ColList"
 import DataRowList from "../../conponents/DataRowList"
-import SignUpButton from "../../conponents/SignUpButton"
-import LogoutButton from "../../conponents/LogoutButton"
 import BackButton from "../../conponents/BackButton"
 import EditButton from "../../conponents/EditButton"
 
@@ -32,13 +30,9 @@ const UserDtail = (): JSX.Element => {
 
             {/* header */}
             <Header>User Detail</Header>
-            <SignUpButton signUpVisible={false}></SignUpButton>
-            <LogoutButton logoutVisible={false}></LogoutButton>
-
             <Link href="/User/UserList" asChild>
                 <BackButton backVisible={true}></BackButton>
             </Link>
-
             <EditButton editVisible={true} onPress={handleEdit}></EditButton>
 
             <ScrollView horizontal style={styles.horizontalScroll}>

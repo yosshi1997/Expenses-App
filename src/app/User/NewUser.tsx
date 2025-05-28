@@ -7,10 +7,7 @@ import AddButton from "../../conponents/AddButton"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
 import NumberInput from "../../conponents/NumberInput"
-import SignUpButton from "../../conponents/SignUpButton"
-import LogoutButton from "../../conponents/LogoutButton"
 import BackButton from "../../conponents/BackButton"
-import EditButton from "../../conponents/EditButton"
 
 const handlePress = (): void => {
     //Add New User
@@ -29,10 +26,8 @@ const NewUser = (): JSX.Element => {
 
             {/* header */}
             <Header>NewUser</Header>
-            <SignUpButton signUpVisible={false}></SignUpButton>
-            <LogoutButton logoutVisible={false}></LogoutButton>
             <BackButton backVisible={true} onPress={handleBack}></BackButton>
-            <EditButton editVisible={false}></EditButton>
+
             <StringInput label="User Name">Yoshimasa</StringInput>
 
             <NumberInput label="Initial Value">50000</NumberInput>
