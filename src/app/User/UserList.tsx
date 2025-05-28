@@ -13,11 +13,6 @@ const handlePress = (): void => {
     router.push("/User/TrendCheck")
 }
 
-const handlePress2 = (): void => {
-    //Trend Check
-    router.push("/User/UserDetail")
-}
-
 const UserList = (): JSX.Element => {
     return (
         <View style={styles.container}>
@@ -26,7 +21,7 @@ const UserList = (): JSX.Element => {
 
             {/* User List Scroll */}
             <ScrollView style={styles.userListScroll}>
-                <UserListItem updateTime="2025.04.30 13:14 更新" onPress={handlePress2}>Yoshimasa</UserListItem>
+                <UserListItem updateTime="2025.04.30 13:14 更新">Yoshimasa</UserListItem>
                 <UserListItem updateTime="2025.04.30 14:14 更新">Aya</UserListItem>
                 <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
                 <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
