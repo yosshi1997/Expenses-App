@@ -8,24 +8,14 @@ import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
 
-const handlePress = (): void => {
-    //ログイン
-    router.push("/User/UserList")
-}
 
 const Login = (): JSX.Element => {
     return (
         <View style={styles.container}>
 
             {/* header */}
-            <Header signUpVisible={true} loginVisible={false} logoutVisible={false} backVisible={false} editVisible={false}>Login</Header>
+            <Header signUpVisible={false} loginVisible={false} logoutVisible={false} backVisible={true} editVisible={false}>Trend</Header>
 
-            <StringInput label="Mail Address"></StringInput>
-
-            <StringInput label="Password"></StringInput>
-
-            <AddButton rotate={false}>∨</AddButton>
-            <FooterButton onPress={handlePress}>Login</FooterButton>
         </View>
     )
 }

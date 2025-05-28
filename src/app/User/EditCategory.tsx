@@ -1,12 +1,18 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native"
 import { JSX } from "react"
-
+import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
 import FooterButton from "../../conponents/FooterButton"
 import ColList from "../../conponents/ColList"
 import ColListItem from "../../conponents/ColListItem"
 import AddButton from "../../conponents/AddButton"
+
+const handlePress = (): void => {
+    //Category Save
+    router.push("/User/UserDetail")
+}
+
 const UserDtail = (): JSX.Element => {
     return (
         <View style={styles.container}>
@@ -35,7 +41,7 @@ const UserDtail = (): JSX.Element => {
                 <ColListItem categoryName="SBI銀行" categoryType="Income" />
             </ScrollView>
             <AddButton rotate={false}>∨</AddButton>
-            <FooterButton>Save</FooterButton>
+            <FooterButton onPress={handlePress}>Save</FooterButton>
         </View >
     )
 }

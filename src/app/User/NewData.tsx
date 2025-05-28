@@ -1,11 +1,17 @@
 import { JSX } from "react"
 import { Text, View, StyleSheet, KeyboardAvoidingView } from "react-native"
+import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
 import NumberInput from "../../conponents/NumberInput"
 import AddButton from "../../conponents/AddButton"
+
+const handlePress = (): void => {
+    //Add New Data
+    router.push("/User/UserDetail")
+}
 
 const NewData = (): JSX.Element => {
     return (
@@ -29,7 +35,7 @@ const NewData = (): JSX.Element => {
                 </Text>
             </View>
             <AddButton rotate={false}>∨</AddButton>
-            <FooterButton>Add New Data</FooterButton>
+            <FooterButton onPress={handlePress}>Add New Data</FooterButton>
         </View >
     )
 }

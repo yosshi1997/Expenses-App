@@ -1,11 +1,17 @@
 import { JSX } from "react"
 import { Text, View, StyleSheet, ScrollView } from "react-native"
+import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
 import UserListItem from "../../conponents/UserListItem"
 import AddButton from "../../conponents/AddButton"
 import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
+
+const handlePress = (): void => {
+    //Trend Check
+    router.push("/User/TrendCheck")
+}
 
 const UserList = (): JSX.Element => {
     return (
@@ -31,7 +37,7 @@ const UserList = (): JSX.Element => {
             <AddButton rotate={true} >+</AddButton>
             {/* visible={true}なら表示 */}
             <NewUserButton visible={true}>New User</NewUserButton>
-            <FooterButton>Trend Check</FooterButton>
+            <FooterButton onPress={handlePress}>Trend Check</FooterButton>
 
         </View >
     )

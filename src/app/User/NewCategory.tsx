@@ -1,11 +1,17 @@
 import { JSX } from "react"
 import { Text, View, StyleSheet } from "react-native"
+import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
 import AddButton from "../../conponents/AddButton"
 import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
+
+const handlePress = (): void => {
+    //Add New Category
+    router.push("/User/UserDetail")
+}
 
 const NewCategory = (): JSX.Element => {
     return (
@@ -22,7 +28,7 @@ const NewCategory = (): JSX.Element => {
 
 
             <AddButton rotate={false}>∨</AddButton>
-            <FooterButton>{"Add New\nCategory"}</FooterButton>
+            <FooterButton onPress={handlePress}>{"Add New\nCategory"}</FooterButton>
         </View>
     )
 }

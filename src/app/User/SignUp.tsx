@@ -9,7 +9,7 @@ import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
 
 const handlePress = (): void => {
-    //会員登録
+    //SignUp
     router.push("/User/UserList")
 }
 
