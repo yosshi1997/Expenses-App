@@ -30,18 +30,21 @@ const Login = (): JSX.Element => {
             <Label>Mail Address</Label>
             <View style={styles.inputString}>
                 <TextInput value={email}
-                    onChangeText={(text) => { setEmail(text) }}>
+                    onChangeText={(text) => { setEmail(text) }}
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                    placeholder="e-mail address" />
 
-                </TextInput>
             </View>
 
 
             <Label>Password</Label>
             <View style={styles.inputString}>
                 <TextInput value={password}
-                    onChangeText={(text) => { setPassword(text) }}>
-
-                </TextInput>
+                    onChangeText={(text) => { setPassword(text) }}
+                    autoCapitalize="none"
+                    secureTextEntry={true}
+                    placeholder="password" />
             </View>
 
 
