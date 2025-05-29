@@ -17,7 +17,7 @@ const handlePress = (): void => {
 const Login = (): JSX.Element => {
 
     const [email, setEmail] = useState("")
-
+    const [password, setPassword] = useState("")
     return (
         <View style={styles.container}>
 
@@ -29,7 +29,8 @@ const Login = (): JSX.Element => {
 
             <Label>Mail Address</Label>
             <View style={styles.inputString}>
-                <TextInput>
+                <TextInput value={email}
+                    onChangeText={(text) => { setEmail(text) }}>
 
                 </TextInput>
             </View>
@@ -37,7 +38,8 @@ const Login = (): JSX.Element => {
 
             <Label>Password</Label>
             <View style={styles.inputString}>
-                <TextInput>
+                <TextInput value={password}
+                    onChangeText={(text) => { setPassword(text) }}>
 
                 </TextInput>
             </View>
