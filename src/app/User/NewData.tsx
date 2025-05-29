@@ -1,13 +1,12 @@
 import { JSX } from "react"
-import { Text, View, StyleSheet, KeyboardAvoidingView } from "react-native"
+import { Text, View, StyleSheet, KeyboardAvoidingView, TextInput } from "react-native"
 import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
 import FooterButton from "../../conponents/FooterButton"
-import StringInput from "../../conponents/StringInput"
-import NumberInput from "../../conponents/NumberInput"
 import AddButton from "../../conponents/AddButton"
 import BackButton from "../../conponents/BackButton"
+import Label from "../../conponents/Label"
 
 const handlePress = (): void => {
     //Add New Data
@@ -26,15 +25,34 @@ const NewData = (): JSX.Element => {
             <Header>NewData</Header>
             <BackButton backVisible={true} onPress={handleBack}></BackButton>
 
-            <StringInput label="User" defaultValue="Yoshimasa"></StringInput>
+            <Label>User</Label>
+            <View style={styles.inputString}>
+                <TextInput>
+                    Yoshimasa
+                </TextInput>
+            </View>
 
-            <NumberInput label="Year">2025</NumberInput>
+            <Label>Year</Label>
+            <View style={styles.inputString}>
+                <TextInput>
+                    12
+                </TextInput>
+            </View>
 
-            <NumberInput label="Month">12</NumberInput>
+            <Label>Category</Label>
+            <View style={styles.inputString}>
+                <TextInput>
+                    SBI銀行
+                </TextInput>
+            </View>
 
-            <StringInput label="Category">SBI銀行</StringInput>
+            <Label>Income/Expense</Label>
+            <View style={styles.inputString}>
+                <TextInput>
+                    194129
+                </TextInput>
+            </View>
 
-            <NumberInput label="Income/Expense">194129</NumberInput>
 
             <View style={styles.noteText}>
                 <Text>
@@ -52,6 +70,16 @@ const styles = StyleSheet.create({
         backgroundColor: "rgb(255, 255, 255)"
     },
     noteText: {
+        alignItems: "center"
+    },
+    inputString: {
+        height: 24,
+        width: "90%",
+        marginHorizontal: "5%",
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: 'rgb(0, 0, 0)',
+        justifyContent: "center",
         alignItems: "center"
     }
 })

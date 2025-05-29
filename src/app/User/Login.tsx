@@ -1,12 +1,13 @@
 import { JSX } from "react"
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native"
+import { Text, View, StyleSheet, TouchableOpacity, TextInput } from "react-native"
 import { Link, router } from "expo-router"
+import { useState } from "react"
 
 import Header from "../../conponents/Header"
 import AddButton from "../../conponents/AddButton"
 import FooterButton from "../../conponents/FooterButton"
-import StringInput from "../../conponents/StringInput"
 import SignUpButton from "../../conponents/SignUpButton"
+import Label from "../../conponents/Label"
 
 const handlePress = (): void => {
     //ログイン
@@ -14,18 +15,33 @@ const handlePress = (): void => {
 }
 
 const Login = (): JSX.Element => {
+
+    const [email, setEmail] = useState("")
+
     return (
         <View style={styles.container}>
 
             {/* header */}
             <Header>Login</Header>
             <Link href="/User/SignUp" asChild>
-                <SignUpButton signUpVisible={true} ></SignUpButton>
+                <SignUpButton signUpVisible={true}></SignUpButton>
             </Link>
 
-            <StringInput label="Mail Address"></StringInput>
+            <Label>Mail Address</Label>
+            <View style={styles.inputString}>
+                <TextInput>
 
-            <StringInput label="Password"></StringInput>
+                </TextInput>
+            </View>
+
+
+            <Label>Password</Label>
+            <View style={styles.inputString}>
+                <TextInput>
+
+                </TextInput>
+            </View>
+
 
             <AddButton rotate={false}>∨</AddButton>
             <FooterButton onPress={handlePress}>Login</FooterButton>
@@ -36,6 +52,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "rgb(255, 255, 255)"
+    },
+    inputString: {
+        height: 24,
+        width: "90%",
+        marginHorizontal: "5%",
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: 'rgb(0, 0, 0)',
+        justifyContent: "center",
+        alignItems: "center"
     }
 
 })
