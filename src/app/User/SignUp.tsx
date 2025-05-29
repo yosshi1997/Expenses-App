@@ -10,7 +10,7 @@ import BackButton from "../../conponents/BackButton"
 
 const handlePress = (): void => {
     //SignUp
-    router.push("/User/UserList")
+    router.replace("/User/UserList")
 }
 
 const SignUp = (): JSX.Element => {

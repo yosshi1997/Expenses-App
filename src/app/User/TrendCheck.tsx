@@ -3,28 +3,24 @@ import { Text, View, StyleSheet, TouchableOpacity } from "react-native"
 import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
-import AddButton from "../../conponents/AddButton"
 import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
 import StringInput from "../../conponents/StringInput"
-import SignUpButton from "../../conponents/SignUpButton"
-import LogoutButton from "../../conponents/LogoutButton"
 import BackButton from "../../conponents/BackButton"
-import EditButton from "../../conponents/EditButton"
 
 
-const Login = (): JSX.Element => {
+const handleBack = (): void => {
+    //Category Save
+    router.back()
+}
+
+const TrenndCheck = (): JSX.Element => {
     return (
         <View style={styles.container}>
 
             {/* header */}
             <Header>TrendCheck</Header>
-            <SignUpButton signUpVisible={false}></SignUpButton>
-            <LogoutButton logoutVisible={false}></LogoutButton>
-            <Link href="/User/UserList" asChild>
-                <BackButton backVisible={true}></BackButton>
-            </Link>
-            <EditButton editVisible={false}></EditButton>
+            <BackButton backVisible={true} onPress={handleBack}></BackButton>
 
         </View>
     )
@@ -37,4 +33,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Login
+export default TrenndCheck

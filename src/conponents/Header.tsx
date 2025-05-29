@@ -16,7 +16,7 @@ const Header = ({ children }: Props): JSX.Element => {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: "rgb(25, 25, 25)",
+        backgroundColor: "rgb(40, 40, 40)",
         height: 120,
         justifyContent: "flex-end",
         alignItems: "center"

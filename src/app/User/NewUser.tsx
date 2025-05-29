@@ -11,7 +11,7 @@ import BackButton from "../../conponents/BackButton"
 
 const handlePress = (): void => {
     //Add New User
-    router.push("/User/UserList")
+    router.replace("/User/UserList")
 }
 
 const handleBack = (): void => {

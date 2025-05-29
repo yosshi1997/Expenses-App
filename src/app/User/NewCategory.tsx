@@ -10,7 +10,7 @@ import BackButton from "../../conponents/BackButton"
 
 const handlePress = (): void => {
     //Add New Category
-    router.push("/User/UserDetail")
+    router.replace("/User/UserDetail")
 }
 
 const handleBack = (): void => {

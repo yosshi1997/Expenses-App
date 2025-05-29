@@ -10,7 +10,7 @@ import SignUpButton from "../../conponents/SignUpButton"
 
 const handlePress = (): void => {
     //ログイン
-    router.push("/User/UserList")
+    router.replace("/User/UserList")
 }
 
 const Login = (): JSX.Element => {
