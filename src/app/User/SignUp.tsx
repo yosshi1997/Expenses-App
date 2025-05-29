@@ -7,6 +7,7 @@ import AddButton from "../../conponents/AddButton"
 import FooterButton from "../../conponents/FooterButton"
 import BackButton from "../../conponents/BackButton"
 import Label from "../../conponents/Label"
+import { useState } from "react"
 
 const handlePress = (): void => {
     //SignUp
@@ -14,6 +15,8 @@ const handlePress = (): void => {
 }
 
 const SignUp = (): JSX.Element => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     return (
         <View style={styles.container}>
 
@@ -25,18 +28,24 @@ const SignUp = (): JSX.Element => {
 
             <Label>Mail Address</Label>
             <View style={styles.inputString}>
-                <TextInput>
+                <TextInput value={email}
+                    onChangeText={(text) => { setEmail(text) }}
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                    placeholder="e-mail address" />
 
-                </TextInput>
             </View>
 
 
             <Label>Password</Label>
             <View style={styles.inputString}>
-                <TextInput>
-
-                </TextInput>
+                <TextInput value={password}
+                    onChangeText={(text) => { setPassword(text) }}
+                    autoCapitalize="none"
+                    secureTextEntry={true}
+                    placeholder="password" />
             </View>
+
             <AddButton rotate={false}>∨</AddButton>
             <FooterButton onPress={handlePress}>SignUp</FooterButton>
         </View>
