@@ -8,9 +8,17 @@ import FooterButton from "../../conponents/FooterButton"
 import BackButton from "../../conponents/BackButton"
 import Label from "../../conponents/Label"
 import { useState } from "react"
+import { auth } from "../../config"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 
-const handlePress = (): void => {
+const handlePress = (email: string, password: string): void => {
     //SignUp
+    console.log(email, password)
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            console.log(userCredential.user.uid)
+        })
+        .catch((error) => { console.log(error) })
     router.replace("/User/UserList")
 }
 
@@ -47,7 +55,7 @@ const SignUp = (): JSX.Element => {
             </View>
 
             <AddButton rotate={false}>∨</AddButton>
-            <FooterButton onPress={handlePress}>SignUp</FooterButton>
+            <FooterButton onPress={() => { handlePress(email, password) }}>SignUp</FooterButton>
         </View>
     )
 }
