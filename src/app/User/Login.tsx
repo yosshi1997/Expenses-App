@@ -1,5 +1,5 @@
 import { JSX } from "react"
-import { Text, View, StyleSheet, TouchableOpacity, TextInput } from "react-native"
+import { Text, View, StyleSheet, TouchableOpacity, TextInput, Alert } from "react-native"
 import { Link, router } from "expo-router"
 import { useState } from "react"
 
@@ -8,10 +8,22 @@ import AddButton from "../../conponents/AddButton"
 import FooterButton from "../../conponents/FooterButton"
 import SignUpButton from "../../conponents/SignUpButton"
 import Label from "../../conponents/Label"
+import { auth } from "../../config"
+import { signInWithEmailAndPassword } from "firebase/auth"
 
-const handlePress = (): void => {
+const handlePress = (email: string, password: string): void => {
     //ログイン
-    router.replace("/User/UserList")
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCedential) => {
+            console.log(userCedential.user.uid)
+            router.replace("/User/UserList")
+        })
+        .catch((error) => {
+            const { code, message } = error
+            console.log(code, message)
+            Alert.alert(message)
+        }
+        )
 }
 
 const Login = (): JSX.Element => {
@@ -49,7 +61,7 @@ const Login = (): JSX.Element => {
 
 
             <AddButton rotate={false}>∨</AddButton>
-            <FooterButton onPress={handlePress}>Login</FooterButton>
+            <FooterButton onPress={() => { handlePress(email, password) }}>Login</FooterButton>
         </View>
     )
 }

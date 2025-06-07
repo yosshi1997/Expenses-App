@@ -9,7 +9,7 @@ const LogoutButton = ({ logoutVisible = false }: Props): JSX.Element => {
     return (
 
         < View>
-            <Link href="/User/Login" asChild>
+            <Link href="/User/Login" asChild replace>
                 <TouchableOpacity>
                     <Text style={[styles.headerLogoutButton, logoutVisible && styles.logoutVisible]}>Logout</Text>
                 </TouchableOpacity>

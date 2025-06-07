@@ -10,7 +10,7 @@ interface Props {
 const SignUpButton = ({ signUpVisible = false }: Props): JSX.Element => {
     return (
         < View>
-            <Link href="/User/SignUp" asChild>
+            <Link href="/User/SignUp" asChild replace>
                 <TouchableOpacity>
                     <Text style={[styles.headerSignUpButton, signUpVisible && styles.signUpVisible]}>SignUp</Text>
                 </TouchableOpacity>
