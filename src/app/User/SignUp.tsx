@@ -1,5 +1,5 @@
 import { JSX } from "react"
-import { Text, View, StyleSheet, TextInput } from "react-native"
+import { Text, View, StyleSheet, TextInput, Alert } from "react-native"
 import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
@@ -15,11 +15,16 @@ const handlePress = (email: string, password: string): void => {
     //SignUp
     console.log(email, password)
     createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            console.log(userCredential.user.uid)
+        .then((userCedential) => {
+            console.log(userCedential.user.uid)
+            router.replace("/User/UserList")
         })
-        .catch((error) => { console.log(error) })
-    router.replace("/User/UserList")
+        .catch((error) => {
+            const { code, message } = error
+            console.log(code, message)
+            Alert.alert(message)
+        }
+        )
 }
 
 const SignUp = (): JSX.Element => {
