@@ -1,6 +1,6 @@
 import { JSX, useState } from "react"
 import { Text, View, StyleSheet, KeyboardAvoidingView, TextInput } from "react-native"
-import { Link, router } from "expo-router"
+import { useLocalSearchParams, Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
 import FooterButton from "../../conponents/FooterButton"
@@ -10,12 +10,12 @@ import Label from "../../conponents/Label"
 import { collection, addDoc, Timestamp } from "firebase/firestore"
 import { db, auth } from "../../config"
 
-const handlePress = (UserName: String, Year: Number, Month: Number, Category: String, IncomeExpense: Number): void => {
+const handlePress = (userNameString: string, Year: number, Month: number, Category: string, IncomeExpense: number): void => {
     if (auth.currentUser === null) { return }
 
     //アカウント/ユーザー名(入力値)/カテゴリ(income0)/data(入力値)
     const ref = collection(db,
-        `users/${auth.currentUser?.uid}/userList/${UserName}/categories/${Category}/ym/${Year}:${Month}/data`)
+        `users/${auth.currentUser?.uid}/userList/${userNameString}/categories/${Category}/ym/${Year}:${Month}/data`)
 
     addDoc(ref, {
         IncomeExpense,
@@ -23,7 +23,10 @@ const handlePress = (UserName: String, Year: Number, Month: Number, Category: St
     })
         .then((docRef) => {
             console.log("success", docRef.id)
-            router.replace("/User/UserDetail")
+            router.replace({
+                pathname: "/User/UserDetail",
+                params: { userName: userNameString }
+            });
         })
         .catch((error) => {
             console.log(error)
@@ -41,11 +44,13 @@ const NewData = (): JSX.Element => {
     const [Month, setMonth] = useState("")
     const [Category, setCategory] = useState("")
     const [IncomeExpense, setIncomeExpense] = useState("")
+    const { userName } = useLocalSearchParams()
+    const userNameString = typeof userName === 'string' ? userName : ''
 
     return (
         <View style={styles.container}>
             {/* header */}
-            <Header>NewData</Header>
+            <Header>{userName} NewData</Header>
             <BackButton backVisible={true} onPress={handleBack}></BackButton>
 
             <Label>Year</Label>
@@ -83,7 +88,7 @@ const NewData = (): JSX.Element => {
                 </Text>
             </View>
             <AddButton rotate={false}>∨</AddButton>
-            <FooterButton onPress={() => { handlePress(Year, Month, Category, IncomeExpense) }}>Add New Data</FooterButton>
+            <FooterButton onPress={() => { handlePress(userNameString, Year, Month, Category, IncomeExpense) }}>Add New Data</FooterButton>
         </View >
     )
 }

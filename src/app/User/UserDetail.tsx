@@ -11,10 +11,7 @@ import DataRowList from "../../conponents/DataRowList"
 import BackButton from "../../conponents/BackButton"
 import EditButton from "../../conponents/EditButton"
 
-const handlePress = (): void => {
-    //New Data Input
-    router.push("/User/NewData")
-}
+
 const handleEdit = (): void => {
     //Category Save
     router.push("/User/EditCategory")
@@ -76,7 +73,12 @@ const UserDtail = (): JSX.Element => {
 
             {/* visible={true}なら表示 */}
             <NewUserButton visible={true} onPress={handleNewCategory}>New Category</NewUserButton>
-            <FooterButton onPress={handlePress}>New Data</FooterButton>
+
+            <FooterButton
+                onPress={() => router.push({ pathname: "/User/NewData", params: { userName } })}
+            >
+                {userName} New Data
+            </FooterButton>
 
         </View>
     )

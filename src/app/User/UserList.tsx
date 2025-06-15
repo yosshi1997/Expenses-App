@@ -32,6 +32,10 @@ const UserList = (): JSX.Element => {
             <ScrollView style={styles.userListScroll}>
                 <UserListItem updateTime="2025.04.30 13:14 更新"
                     onPress={() => router.push({ pathname: "/User/UserDetail", params: { userName: "Yoshimasa" } })}>Yoshimasa</UserListItem>
+                <UserListItem updateTime="2025.04.30 13:14 更新"
+                    onPress={() => router.push({ pathname: "/User/UserDetail", params: { userName: "Aya" } })}>Aya</UserListItem>
+                <UserListItem updateTime="2025.04.30 13:14 更新"
+                    onPress={() => router.push({ pathname: "/User/UserDetail", params: { userName: "Family" } })}>Family</UserListItem>
                 <View style={styles.scrollMargin}></View>
             </ScrollView>
 
