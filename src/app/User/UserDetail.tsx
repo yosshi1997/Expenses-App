@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native"
 import { JSX } from "react"
-import { Link, router } from "expo-router"
+import { useLocalSearchParams, Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
 import AddButton from "../../conponents/AddButton"
@@ -25,11 +25,12 @@ const handleNewCategory = (): void => {
 }
 
 const UserDtail = (): JSX.Element => {
+    const { userName } = useLocalSearchParams()
     return (
         <View style={styles.container}>
 
             {/* header */}
-            <Header>User Detail</Header>
+            <Header>{userName} Detail</Header>
             <Link href="/User/UserList" asChild>
                 <BackButton backVisible={true}></BackButton>
             </Link>

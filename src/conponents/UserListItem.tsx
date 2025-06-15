@@ -5,27 +5,26 @@ import { Link } from "expo-router"
 interface Props {
     children: string;
     updateTime: string;
+    onPress?: () => void;
 }
 
 const UserListItem = (props: Props): JSX.Element => {
-    const { children, updateTime } = props
+    const { children, updateTime, onPress } = props
     return (
-        <Link href="/User/UserDetail" asChild>
-            <TouchableOpacity>
-                {/* User List Item */}
-                <View style={styles.userListItem} >
-                    <View style={styles.userNameAndTime}>
-                        <Text style={styles.userName}>{children}</Text>
-                        <Text style={styles.updateTime}>{updateTime}</Text>
-                    </View>
-                    <TouchableOpacity style={styles.userListItemButton}>
-                        <Text style={styles.userEditButton}>
-                            <MaterialIcons name="edit" size={20} />
-                        </Text>
-                    </TouchableOpacity>
-                </View >
-            </TouchableOpacity>
-        </Link>
+        <TouchableOpacity onPress={onPress}>
+            {/* User List Item */}
+            <View style={styles.userListItem} >
+                <View style={styles.userNameAndTime}>
+                    <Text style={styles.userName}>{children}</Text>
+                    <Text style={styles.updateTime}>{updateTime}</Text>
+                </View>
+                <TouchableOpacity style={styles.userListItemButton}>
+                    <Text style={styles.userEditButton}>
+                        <MaterialIcons name="edit" size={20} />
+                    </Text>
+                </TouchableOpacity>
+            </View >
+        </TouchableOpacity>
     )
 }
 

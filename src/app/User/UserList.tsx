@@ -30,15 +30,8 @@ const UserList = (): JSX.Element => {
 
             {/* User List Scroll */}
             <ScrollView style={styles.userListScroll}>
-                <UserListItem updateTime="2025.04.30 13:14 更新">Yoshimasa</UserListItem>
-                <UserListItem updateTime="2025.04.30 14:14 更新">Aya</UserListItem>
-                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
-                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
-                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
-                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
-                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
-                <UserListItem updateTime="2025.04.30 15:14 更新">Family</UserListItem>
-                <UserListItem updateTime="2025.04.30 15:14 更新">Fam</UserListItem>
+                <UserListItem updateTime="2025.04.30 13:14 更新"
+                    onPress={() => router.push({ pathname: "/User/UserDetail", params: { userName: "Yoshimasa" } })}>Yoshimasa</UserListItem>
                 <View style={styles.scrollMargin}></View>
             </ScrollView>
 
