@@ -12,9 +12,9 @@ import { db, auth } from "../../config"
 import { useState } from "react"
 
 const handlePress = (userName: string, userInitial: string): void => {
-    //Add New User
     if (auth.currentUser === null) { return }
 
+    //アカウント/ユーザー名(入力値)/カテゴリ(income0)/data(入力値)
     const ref = collection(db, `users/${auth.currentUser?.uid}/userList/${userName}/categories/income0/data`)
 
     addDoc(ref, {

@@ -12,7 +12,7 @@ import { auth } from "../../config"
 import { signInWithEmailAndPassword } from "firebase/auth"
 
 const handlePress = (email: string, password: string): void => {
-    //ログイン
+    //Firebaseにあるユーザー情報を照会し、該当するものにログインする。
     signInWithEmailAndPassword(auth, email, password)
         .then((userCedential) => {
             console.log(userCedential.user.uid)

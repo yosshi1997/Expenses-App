@@ -12,7 +12,7 @@ import { auth } from "../../config"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 
 const handlePress = (email: string, password: string): void => {
-    //SignUp
+    //Firebaseに新たなユーザー情報を追加する。入力したメアドとパスワードでログインできるようにする。
     console.log(email, password)
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCedential) => {

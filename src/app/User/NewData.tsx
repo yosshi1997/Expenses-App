@@ -1,4 +1,4 @@
-import { JSX } from "react"
+import { JSX, useState } from "react"
 import { Text, View, StyleSheet, KeyboardAvoidingView, TextInput } from "react-native"
 import { Link, router } from "expo-router"
 
@@ -7,10 +7,28 @@ import FooterButton from "../../conponents/FooterButton"
 import AddButton from "../../conponents/AddButton"
 import BackButton from "../../conponents/BackButton"
 import Label from "../../conponents/Label"
+import { collection, addDoc, Timestamp } from "firebase/firestore"
+import { db, auth } from "../../config"
 
-const handlePress = (): void => {
-    //Add New Data
-    router.replace("/User/UserDetail")
+const handlePress = (UserName: String, Year: Number, Month: Number, Category: String, IncomeExpense: Number): void => {
+    if (auth.currentUser === null) { return }
+
+    //アカウント/ユーザー名(入力値)/カテゴリ(income0)/data(入力値)
+    const ref = collection(db,
+        `users/${auth.currentUser?.uid}/userList/${UserName}/categories/${Category}/ym/${Year}:${Month}/data`)
+
+    addDoc(ref, {
+        IncomeExpense,
+        addDate: Timestamp.fromDate(new Date())
+    })
+        .then((docRef) => {
+            console.log("success", docRef.id)
+            router.replace("/User/UserDetail")
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
 }
 
 const handleBack = (): void => {
@@ -19,37 +37,42 @@ const handleBack = (): void => {
 }
 
 const NewData = (): JSX.Element => {
+    const [Year, setYear] = useState("")
+    const [Month, setMonth] = useState("")
+    const [Category, setCategory] = useState("")
+    const [IncomeExpense, setIncomeExpense] = useState("")
+
     return (
         <View style={styles.container}>
             {/* header */}
             <Header>NewData</Header>
             <BackButton backVisible={true} onPress={handleBack}></BackButton>
 
-            <Label>User</Label>
+            <Label>Year</Label>
             <View style={styles.inputString}>
-                <TextInput>
-                    Yoshimasa
+                <TextInput value={Year} onChangeText={(text) => { setYear(text) }}>
+
                 </TextInput>
             </View>
 
-            <Label>Year</Label>
+            <Label>Month</Label>
             <View style={styles.inputString}>
-                <TextInput>
-                    12
+                <TextInput value={Month} onChangeText={(text) => { setMonth(text) }}>
+
                 </TextInput>
             </View>
 
             <Label>Category</Label>
             <View style={styles.inputString}>
-                <TextInput>
-                    SBI銀行
+                <TextInput value={Category} onChangeText={(text) => { setCategory(text) }}>
+
                 </TextInput>
             </View>
 
             <Label>Income/Expense</Label>
             <View style={styles.inputString}>
-                <TextInput>
-                    194129
+                <TextInput value={IncomeExpense} onChangeText={(text) => { setIncomeExpense(text) }}>
+
                 </TextInput>
             </View>
 
@@ -60,7 +83,7 @@ const NewData = (): JSX.Element => {
                 </Text>
             </View>
             <AddButton rotate={false}>∨</AddButton>
-            <FooterButton onPress={handlePress}>Add New Data</FooterButton>
+            <FooterButton onPress={() => { handlePress(Year, Month, Category, IncomeExpense) }}>Add New Data</FooterButton>
         </View >
     )
 }
