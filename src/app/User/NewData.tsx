@@ -53,7 +53,6 @@ const handlePress = async (
 
 
 const handleBack = (): void => {
-    //Category Save
     router.back()
 }
 
@@ -73,7 +72,7 @@ const NewData = (): JSX.Element => {
 
             <Label>Year</Label>
             <View style={styles.inputString}>
-                <TextInput value={Year} onChangeText={(text) => { setYear(text) }}>
+                <TextInput value={Year} onChangeText={(text) => { setYear(text) }} autoFocus>
 
                 </TextInput>
             </View>

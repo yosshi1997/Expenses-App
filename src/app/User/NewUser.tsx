@@ -49,7 +49,7 @@ const NewUser = (): JSX.Element => {
             <BackButton backVisible={true} onPress={handleBack}></BackButton>
             <Label>User Name</Label>
             <View style={styles.inputString}>
-                <TextInput value={userName} onChangeText={(text) => { setUserName(text) }}>
+                <TextInput value={userName} onChangeText={(text) => { setUserName(text) }} autoFocus>
 
                 </TextInput>
             </View>
