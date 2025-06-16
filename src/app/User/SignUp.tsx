@@ -45,7 +45,8 @@ const SignUp = (): JSX.Element => {
                     onChangeText={(text) => { setEmail(text) }}
                     autoCapitalize="none"
                     keyboardType="email-address"
-                    placeholder="e-mail address" />
+                    placeholder="e-mail address"
+                    autoFocus />
 
             </View>
 
