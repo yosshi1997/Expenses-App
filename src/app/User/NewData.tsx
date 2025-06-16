@@ -1,5 +1,5 @@
 import { JSX, useState } from "react"
-import { Text, View, StyleSheet, KeyboardAvoidingView, TextInput } from "react-native"
+import { Text, View, StyleSheet, KeyboardAvoidingView, TextInput, Alert } from "react-native"
 import { useLocalSearchParams, Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
@@ -7,32 +7,50 @@ import FooterButton from "../../conponents/FooterButton"
 import AddButton from "../../conponents/AddButton"
 import BackButton from "../../conponents/BackButton"
 import Label from "../../conponents/Label"
-import { collection, addDoc, Timestamp } from "firebase/firestore"
+import { doc, setDoc, Timestamp } from "firebase/firestore"
 import { db, auth } from "../../config"
 
-const handlePress = (userNameString: string, Year: number, Month: number, Category: string, IncomeExpense: number): void => {
+const handlePress = async (
+    userNameString: string,
+    Year: string,
+    Month: string,
+    Category: string,
+    IncomeExpenseString: string
+): Promise<void> => {
+    if (!userNameString || !Year || !Month || !Category || !IncomeExpenseString) {
+        console.log("入力が不完全です");
+        Alert.alert("入力エラー", "入力が不完全です")
+        return;
+    }
+
     if (auth.currentUser === null) { return }
 
-    //アカウント/ユーザー名(入力値)/カテゴリ(income0)/data(入力値)
-    const ref = collection(db,
-        `users/${auth.currentUser?.uid}/userList/${userNameString}/categories/${Category}/ym/${Year}:${Month}/data`)
+    const IncomeExpense = Number(IncomeExpenseString);
+    const yearMonth = `${Year}:${Month}`;
 
-    addDoc(ref, {
-        IncomeExpense,
-        addDate: Timestamp.fromDate(new Date())
-    })
-        .then((docRef) => {
-            console.log("success", docRef.id)
-            router.replace({
-                pathname: "/User/UserDetail",
-                params: { userName: userNameString }
-            });
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+    // 置き換えるドキュメントのIDを年月に固定（例：2026:01 など）
+    const docRef = doc(db,
+        `users/${auth.currentUser.uid}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}/data`,
+        "main" // ← ここを固定IDにしておけば上書き可能
+    );
 
+    try {
+        await setDoc(docRef, {
+            IncomeExpense,
+            addDate: Timestamp.fromDate(new Date())
+        });
+        console.log("ドキュメントを保存（置き換え）しました");
+        Alert.alert("成功", "ドキュメントを保存（置き換え）しました")
+        router.replace({
+            pathname: "/User/UserDetail",
+            params: { userName: userNameString }
+        });
+    } catch (error) {
+        console.error("Firestore setDoc error:", error);
+        Alert.alert("エラー", `Firestore setDoc error: ${error.message}`)
+    }
 }
+
 
 const handleBack = (): void => {
     //Category Save
