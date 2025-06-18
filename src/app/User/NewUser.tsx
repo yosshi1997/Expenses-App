@@ -7,28 +7,37 @@ import AddButton from "../../conponents/AddButton"
 import FooterButton from "../../conponents/FooterButton"
 import BackButton from "../../conponents/BackButton"
 import Label from "../../conponents/Label"
-import { collection, addDoc, Timestamp } from "firebase/firestore"
+import { collection, doc, addDoc, setDoc, Timestamp } from "firebase/firestore"
 import { db, auth } from "../../config"
 import { useState } from "react"
 
-const handlePress = (userName: string, userInitial: string): void => {
-    if (auth.currentUser === null) { return }
+const handlePress = async (userName: string, userInitial: string): Promise<void> => {
+    if (!auth.currentUser) return;
 
-    //アカウント/ユーザー名(入力値)/カテゴリ(income0)/data(入力値)
-    const ref = collection(db, `users/${auth.currentUser?.uid}/userList/${userName}/categories/income0/data`)
+    const userId = auth.currentUser.uid;
 
-    addDoc(ref, {
-        userInitial,
-        addDate: Timestamp.fromDate(new Date())
-    })
-        .then((docRef) => {
-            console.log("success", docRef.id)
-            router.replace("/User/UserList")
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+    try {
+        // ✅ userName をドキュメントIDとして明示指定
+        const userDocRef = doc(db, `users/${userId}/userList/${userName}`);
+        await setDoc(userDocRef, {
+            userName,
+            upDateTime: Timestamp.fromDate(new Date())
+        });
+        console.log("userList 作成成功");
 
+        // ✅ data は addDoc でランダムIDに追加（問題なし）
+        const dataRef = collection(db, `users/${userId}/userList/${userName}/categories/income0/ym/0/data`);
+        await addDoc(dataRef, {
+            userInitial,
+            addDate: Timestamp.fromDate(new Date())
+        });
+        console.log("data 作成成功");
+
+        router.replace("/User/UserList");
+
+    } catch (error) {
+        console.log("エラー:", error);
+    }
 }
 
 const handleBack = (): void => {

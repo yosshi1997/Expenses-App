@@ -1,6 +1,8 @@
-import { JSX } from "react"
-import { Text, View, StyleSheet, ScrollView } from "react-native"
-import { Link, router } from "expo-router"
+import { JSX, useEffect, useState } from "react"
+import { Text, View, StyleSheet, ScrollView, ActivityIndicator } from "react-native"
+import { router } from "expo-router"
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore"
+import { db, auth } from "../../config"
 
 import Header from "../../conponents/Header"
 import UserListItem from "../../conponents/UserListItem"
@@ -9,45 +11,74 @@ import NewUserButton from "../../conponents/NewUserButton"
 import FooterButton from "../../conponents/FooterButton"
 import LogoutButton from "../../conponents/LogoutButton"
 
+interface User {
+    id: string;
+    userName: string;
+    upDateTime: string;
+}
 
 const handlePress = (): void => {
-    //Trend Check
     router.push("/User/TrendCheck")
 }
 
 const handleNewUser = (): void => {
-    //Trend Check
     router.push("/User/NewUser")
 }
 
-
 const UserList = (): JSX.Element => {
+    const [userList, setuserList] = useState<userList[]>([]);
+    //画面が表示されたときにuserListを読み込み、
+    useEffect(() => {
+        if (auth.currentUser === null) { return }
+
+        const ref = collection(db, `users/${auth.currentUser.uid}/userList`)
+        const q = query(ref, orderBy("upDateTime", "desc"))
+
+        const unSubscribe = onSnapshot(q, (snapshot) => {
+            const fetchedUsers: userList[] = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                userName: doc.data().userName,
+                upDateTime: doc.data().upDateTime.toDate().toLocaleString() ?? "更新日時なし",
+            }));
+            setuserList(fetchedUsers);
+        })
+        return unSubscribe
+    }, [])
+
+
     return (
         <View style={styles.container}>
-            {/* header */}
             <Header>Main Menu</Header>
-            <LogoutButton logoutVisible={true}></LogoutButton>
+            <LogoutButton logoutVisible={true} />
 
-            {/* User List Scroll */}
             <ScrollView style={styles.userListScroll}>
-                <UserListItem updateTime="2025.04.30 13:14 更新"
-                    onPress={() => router.push({ pathname: "/User/UserDetail", params: { userName: "Yoshimasa" } })}>Yoshimasa</UserListItem>
-                <UserListItem updateTime="2025.04.30 13:14 更新"
-                    onPress={() => router.push({ pathname: "/User/UserDetail", params: { userName: "Aya" } })}>Aya</UserListItem>
-                <UserListItem updateTime="2025.04.30 13:14 更新"
-                    onPress={() => router.push({ pathname: "/User/UserDetail", params: { userName: "Family" } })}>Family</UserListItem>
-                <View style={styles.scrollMargin}></View>
+                {userList.map((userList) => (
+                    <UserListItem
+                        key={userList.id}
+                        updateTime={userList.upDateTime}
+                        onPress={() =>
+                            router.push({
+                                pathname: "/User/UserDetail",
+                                params: { userName: userList.userName },
+                            })
+                        }
+                    >
+                        {userList.userName}
+                    </UserListItem>
+                ))}
+                <View style={styles.scrollMargin} />
             </ScrollView>
 
-            {/* rotate={true}なら45度回転 */}
-            <AddButton rotate={true} >+</AddButton>
-            {/* visible={true}なら表示 */}
-            <NewUserButton visible={true} onPress={handleNewUser}>New User</NewUserButton>
+            <AddButton rotate={true}>+</AddButton>
+            <NewUserButton visible={true} onPress={handleNewUser}>
+                New User
+            </NewUserButton>
             <FooterButton onPress={handlePress}>Trend Check</FooterButton>
-
-        </View >
+        </View>
     )
 }
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -55,7 +86,7 @@ const styles = StyleSheet.create({
         backgroundColor: "rgb(255, 255, 255)"
     },
     userListScroll: {
-        flexGrow: 1, // 内容に応じてスクロール可能にする
+        flexGrow: 1
     },
     scrollMargin: {
         height: 200
@@ -63,6 +94,3 @@ const styles = StyleSheet.create({
 })
 
 export default UserList
-
-
-

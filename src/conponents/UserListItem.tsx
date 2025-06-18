@@ -28,6 +28,8 @@ const UserListItem = (props: Props): JSX.Element => {
     )
 }
 
+
+
 const styles = StyleSheet.create({
     userListItem: {
         backgroundColor: "rgb(138, 138, 138)",
