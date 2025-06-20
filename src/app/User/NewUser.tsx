@@ -1,5 +1,5 @@
 import { JSX } from "react"
-import { Text, View, StyleSheet, TextInput } from "react-native"
+import { Text, View, StyleSheet, TextInput, Alert } from "react-native"
 import { Link, router } from "expo-router"
 
 import Header from "../../conponents/Header"
@@ -7,7 +7,7 @@ import AddButton from "../../conponents/AddButton"
 import FooterButton from "../../conponents/FooterButton"
 import BackButton from "../../conponents/BackButton"
 import Label from "../../conponents/Label"
-import { collection, doc, addDoc, setDoc, Timestamp } from "firebase/firestore"
+import { collection, doc, addDoc, setDoc, getDoc, getDocs, where, Timestamp, query } from "firebase/firestore"
 import { db, auth } from "../../config"
 import { useState } from "react"
 
@@ -15,30 +15,52 @@ const handlePress = async (userName: string, userInitial: string): Promise<void>
     if (!auth.currentUser) return;
 
     const userId = auth.currentUser.uid;
+    const userInitialNumber = Number(userInitial);
+    const ref = collection(db, `users/${userId}/userList`);
+    const q = query(ref, where("userName", "==", userName));
+    const querySnapshot = await getDocs(q);
 
-    try {
-        // ✅ userName をドキュメントIDとして明示指定
+    if (!querySnapshot.empty) {
+        Alert.alert(`${userName} \n のデータは既に存在します。\n 別の名前を入力してください。`)
+    } else {
         const userDocRef = doc(db, `users/${userId}/userList/${userName}`);
-        await setDoc(userDocRef, {
-            userName,
-            upDateTime: Timestamp.fromDate(new Date())
-        });
-        console.log("userList 作成成功");
+        try {
+            await setDoc(userDocRef, {
+                userName,
+                upDateTime: Timestamp.fromDate(new Date())
+            });
+            console.log("userList 作成成功");
 
-        // ✅ data は addDoc でランダムIDに追加（問題なし）
-        const dataRef = collection(db, `users/${userId}/userList/${userName}/categories/income0/ym/0/data`);
-        await addDoc(dataRef, {
-            userInitial,
-            addDate: Timestamp.fromDate(new Date())
-        });
-        console.log("data 作成成功");
+            const categoryRef = doc(db, `users/${userId}/userList/${userName}/categories/income0`);
+            await setDoc(categoryRef, {
+                category: "income0",
+                upDateTime: Timestamp.fromDate(new Date())
+            });
+            console.log("category 作成成功");
 
-        router.replace("/User/UserList");
+            const ymRef = doc(db, `users/${userId}/userList/${userName}/categories/income0/ym/0`);
+            await setDoc(ymRef, {
+                ym: "0",
+                upDateTime: Timestamp.fromDate(new Date())
+            });
+            console.log("ym 作成成功");
 
-    } catch (error) {
-        console.log("エラー:", error);
+            const dataRef = doc(db,
+                `users/ ${userId}/userList/${userName}/categories/income0/ym/0/data`, "main");
+            await setDoc(dataRef, {
+                userInitialNumber,
+                addDate: Timestamp.fromDate(new Date())
+            });
+            console.log("data 作成成功");
+
+            router.replace("/User/UserList");
+        }
+        catch (error) {
+            console.log("エラー:", error);
+        }
     }
 }
+
 
 const handleBack = (): void => {
     //Category Save
