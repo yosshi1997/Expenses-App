@@ -17,6 +17,7 @@ const handlePress = async (
     Category: string,
     IncomeExpenseString: string
 ): Promise<void> => {
+
     if (!userNameString || !Year || !Month || !Category || !IncomeExpenseString) {
         console.log("入力が不完全です");
         Alert.alert("入力エラー", "入力が不完全です")
@@ -25,27 +26,48 @@ const handlePress = async (
 
     if (auth.currentUser === null) { return }
 
+    const userId = auth.currentUser.uid;
     const IncomeExpense = Number(IncomeExpenseString);
     const yearMonth = `${Year}:${Month}`;
 
-    // 置き換えるドキュメントのIDを年月に固定（例：2026:01 など）
-    const docRef = doc(db,
-        `users/${auth.currentUser.uid}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}/data`,
-        "main" // ← ここを固定IDにしておけば上書き可能
-    );
-
+    const userDocRef = doc(db, `users/${userId}/userList/${userNameString}`);
     try {
-        await setDoc(docRef, {
+        await setDoc(userDocRef, {
+            userName: userNameString,
+            upDateTime: Timestamp.fromDate(new Date())
+        });
+        console.log("userList 更新成功");
+
+        const categoryRef = doc(db, `users/${userId}/userList/${userNameString}/categories/${Category}`);
+        await setDoc(categoryRef, {
+            category: Category,
+            upDateTime: Timestamp.fromDate(new Date())
+        });
+        console.log("category 更新成功");
+
+        const ymRef = doc(db, `users/${userId}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}`);
+        await setDoc(ymRef, {
+            ym: yearMonth,
+            upDateTime: Timestamp.fromDate(new Date())
+        });
+        console.log("ym 更新成功");
+
+        const dataRef = doc(db,
+            `users/${userId}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}/data`, "main");
+        await setDoc(dataRef, {
             IncomeExpense,
             addDate: Timestamp.fromDate(new Date())
         });
+        console.log("data 更新成功");
+
         console.log("ドキュメントを保存（置き換え）しました");
         Alert.alert("成功", "ドキュメントを保存（置き換え）しました")
         router.replace({
             pathname: "/User/UserDetail",
             params: { userName: userNameString }
         });
-    } catch (error) {
+    }
+    catch (error) {
         console.error("Firestore setDoc error:", error);
         Alert.alert("エラー", `Firestore setDoc error: ${error.message}`)
     }
