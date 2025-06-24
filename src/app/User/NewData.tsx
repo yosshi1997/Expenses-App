@@ -7,7 +7,7 @@ import FooterButton from "../../conponents/FooterButton"
 import AddButton from "../../conponents/AddButton"
 import BackButton from "../../conponents/BackButton"
 import Label from "../../conponents/Label"
-import { doc, setDoc, Timestamp } from "firebase/firestore"
+import { doc, setDoc, getDoc, Timestamp } from "firebase/firestore"
 import { db, auth } from "../../config"
 
 const handlePress = async (
@@ -39,33 +39,41 @@ const handlePress = async (
         console.log("userList 更新成功");
 
         const categoryRef = doc(db, `users/${userId}/userList/${userNameString}/categories/${Category}`);
-        await setDoc(categoryRef, {
-            category: Category,
-            upDateTime: Timestamp.fromDate(new Date())
-        });
-        console.log("category 更新成功");
+        const docCategorySnap = await getDoc(categoryRef);
+        if (docCategorySnap.exists()) {
+            // ドキュメントが存在する → 更新処理へ
+            await setDoc(categoryRef, {
+                category: Category,
+                upDateTime: Timestamp.fromDate(new Date())
+            });
+            console.log("category 更新成功");
 
-        const ymRef = doc(db, `users/${userId}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}`);
-        await setDoc(ymRef, {
-            ym: yearMonth,
-            upDateTime: Timestamp.fromDate(new Date())
-        });
-        console.log("ym 更新成功");
+            const ymRef = doc(db, `users/${userId}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}`);
 
-        const dataRef = doc(db,
-            `users/${userId}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}/data`, "main");
-        await setDoc(dataRef, {
-            IncomeExpense,
-            addDate: Timestamp.fromDate(new Date())
-        });
-        console.log("data 更新成功");
+            await setDoc(ymRef, {
+                ym: yearMonth,
+                upDateTime: Timestamp.fromDate(new Date())
+            });
+            console.log("ym 更新成功");
 
-        console.log("ドキュメントを保存（置き換え）しました");
-        Alert.alert("成功", "ドキュメントを保存（置き換え）しました")
-        router.replace({
-            pathname: "/User/UserDetail",
-            params: { userName: userNameString }
-        });
+            const dataRef = doc(db,
+                `users/${userId}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}/data`, "main");
+            await setDoc(dataRef, {
+                IncomeExpense,
+                addDate: Timestamp.fromDate(new Date())
+            });
+            console.log("data 更新成功");
+
+            console.log("ドキュメントを保存（置き換え）しました");
+            Alert.alert("成功", "ドキュメントを保存（置き換え）しました")
+            router.push({
+                pathname: "/User/UserDetail",
+                params: { userName: userNameString }
+            });
+        } else {
+            console.log("指定されたcategoryが存在しません");
+            return;
+        }
     }
     catch (error) {
         console.error("Firestore setDoc error:", error);

@@ -72,7 +72,9 @@ const UserDtail = (): JSX.Element => {
             <AddButton rotate={true}>+</AddButton>
 
             {/* visible={true}なら表示 */}
-            <NewUserButton visible={true} onPress={handleNewCategory}>New Category</NewUserButton>
+            <NewUserButton visible={true}
+                onPress={() => router.push({ pathname: "/User/NewCategory", params: { userName } })}
+            >New Category</NewUserButton>
 
             <FooterButton
                 onPress={() => router.push({ pathname: "/User/NewData", params: { userName } })}
