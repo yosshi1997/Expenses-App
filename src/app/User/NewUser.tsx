@@ -23,41 +23,48 @@ const handlePress = async (userName: string, userInitial: string): Promise<void>
     if (!querySnapshot.empty) {
         Alert.alert(`${userName} \n のデータは既に存在します。\n 別の名前を入力してください。`)
     } else {
-        const userDocRef = doc(db, `users/${userId}/userList/${userName}`);
+        //userNameの作成
         try {
-            await setDoc(userDocRef, {
+            const userRef = doc(db, `users/${userId}/userList/${userName}`);
+            await setDoc(userRef, {
                 userName,
                 upDateTime: Timestamp.fromDate(new Date())
             });
             console.log("userList 作成成功");
+        }
+        catch (error) {
+            console.log("エラー:", error);
+        }
 
-            const categoryRef = doc(db, `users/${userId}/userList/${userName}/categories/income0`);
-            await setDoc(categoryRef, {
-                category: "income0",
-                upDateTime: Timestamp.fromDate(new Date())
-            });
-            console.log("category 作成成功");
-
-            const ymRef = doc(db, `users/${userId}/userList/${userName}/categories/income0/ym/0`);
+        //ymの作成
+        try {
+            const ymRef = doc(db, `users/${userId}/userList/${userName}/ym/0`);
             await setDoc(ymRef, {
                 ym: "0",
                 upDateTime: Timestamp.fromDate(new Date())
             });
             console.log("ym 作成成功");
-
-            const dataRef = doc(db,
-                `users/ ${userId}/userList/${userName}/categories/income0/ym/0/data`, "main");
-            await setDoc(dataRef, {
-                userInitialNumber,
-                addDate: Timestamp.fromDate(new Date())
-            });
-            console.log("data 作成成功");
-
-            router.replace("/User/UserList");
         }
         catch (error) {
             console.log("エラー:", error);
         }
+
+        //maincategoryの作成
+        try {
+            const dataRef = doc(db, `users/${userId}/userList/${userName}/ym/0/categories/main`);
+            await setDoc(dataRef, {
+                userInitialNumber,
+                addDate: Timestamp.fromDate(new Date())
+            });
+            console.log("maindata 作成成功");
+        }
+        catch (error) {
+            console.log("エラー:", error);
+        }
+
+        router.replace("/User/UserList");
+
+
     }
 }
 
