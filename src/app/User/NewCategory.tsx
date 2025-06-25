@@ -25,25 +25,29 @@ const handlePress = async (
     if (auth.currentUser === null) { return }
     const userId = auth.currentUser.uid;
 
-    const categoryRef = doc(db, `users/${userId}/userList/${userName}/categories/${Category}`);
+    const categoryRef = doc(db, `users/${userId}/userList/${userName}/ym/0/categories/${Category}`);
     const docCategorySnap = await getDoc(categoryRef);
     if (docCategorySnap.exists()) {
-        console.log("指定されたcategoryがすでに存在します");
+        console.log("指定されたcategoryがすでに存在します", categoryRef);
         Alert.alert("失敗", "指定されたカテゴリーがすでに存在します")
         return;
     } else {
-        await setDoc(categoryRef, {
-            category: Category,
-            IncomeOrExpense: IncomeExpense,
-            upDateTime: Timestamp.fromDate(new Date())
-        });
-        console.log("category 作成成功");
-        Alert.alert("成功", "カテゴリーを作成しました")
+        if (IncomeExpense == "Income" || IncomeExpense == "Expense") {
+            await setDoc(categoryRef, {
+                IncomeOrExpense: IncomeExpense,
+                upDateTime: Timestamp.fromDate(new Date())
+            });
+            console.log("category 作成成功");
+            Alert.alert("成功", "カテゴリーを作成しました")
 
-        router.replace({
-            pathname: "/User/UserDetail",
-            params: { userName: userName }
-        });
+            router.replace({
+                pathname: "/User/UserDetail",
+                params: { userName: userName }
+            });
+        } else {
+            console.log("Income or Expenseの値が正しくありません");
+            Alert.alert("失敗", "Income or Expenseの値が正しくありません")
+        }
     }
 
 }
