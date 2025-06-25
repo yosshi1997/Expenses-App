@@ -30,50 +30,35 @@ const handlePress = async (
     const IncomeExpense = Number(IncomeExpenseString);
     const yearMonth = `${Year}:${Month}`;
 
-    const userDocRef = doc(db, `users/${userId}/userList/${userNameString}`);
     try {
-        await setDoc(userDocRef, {
-            userName: userNameString,
-            upDateTime: Timestamp.fromDate(new Date())
-        });
-        console.log("userList 更新成功");
-
-        const categoryRef = doc(db, `users/${userId}/userList/${userNameString}/categories/${Category}`);
+        const categoryRef = doc(db, `users/${userId}/userList/${userNameString}/ym/0/categories/${Category}`);
         const docCategorySnap = await getDoc(categoryRef);
+
         if (docCategorySnap.exists()) {
-            // ドキュメントが存在する → 更新処理へ
-            await setDoc(categoryRef, {
-                category: Category,
-                upDateTime: Timestamp.fromDate(new Date())
-            });
-            console.log("category 更新成功");
-
-            const ymRef = doc(db, `users/${userId}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}`);
-
+            const ymRef = doc(db, `users/${userId}/userList/${userNameString}/ym/${yearMonth}`);
             await setDoc(ymRef, {
                 ym: yearMonth,
                 upDateTime: Timestamp.fromDate(new Date())
             });
-            console.log("ym 更新成功");
+            console.log("ym 入力成功");
 
-            const dataRef = doc(db,
-                `users/${userId}/userList/${userNameString}/categories/${Category}/ym/${yearMonth}/data`, "main");
+            const dataRef = doc(db, `users/${userId}/userList/${userNameString}/ym/${yearMonth}/categories/${Category}`);
             await setDoc(dataRef, {
                 IncomeExpense,
                 addDate: Timestamp.fromDate(new Date())
             });
-            console.log("data 更新成功");
-
-            console.log("ドキュメントを保存（置き換え）しました");
-            Alert.alert("成功", "ドキュメントを保存（置き換え）しました")
-            router.push({
-                pathname: "/User/UserDetail",
-                params: { userName: userNameString }
-            });
-        } else {
+            console.log("data 入力成功");
+        }
+        else {
             console.log("指定されたcategoryが存在しません");
             return;
         }
+        console.log("ドキュメントを保存（置き換え）しました");
+        Alert.alert("成功", "新しいデータを保存しました")
+        router.push({
+            pathname: "/User/UserDetail",
+            params: { userName: userNameString }
+        });
     }
     catch (error) {
         console.error("Firestore setDoc error:", error);
